@@ -1,0 +1,46 @@
+---
+import Container from "@components/Container.astro";
+import TextLink from "@components/TextLink.astro";
+import { getFilteredCollectionEntries, resolvePath } from "@lib/utils";
+import { GLOBAL } from "@consts";
+
+const anyBlogPosts =
+  (await getFilteredCollectionEntries("blog")).entries.length > 0;
+
+const anyTalks =
+  (await getFilteredCollectionEntries("talks")).entries.length > 0;
+
+const anyProjects =
+  (await getFilteredCollectionEntries("projects")).entries.length > 0;
+---
+
+<header transition:persist>
+  <Container>
+    <div class="flex flex-wrap justify-between gap-y-2">
+      <TextLink href={resolvePath("/")} underline={false}>
+        {
+          (GLOBAL.logo && (
+            <img
+              id="logo"
+              src={resolvePath(GLOBAL.logo.darkThemeSrc, Astro.url.pathname)}
+              alt={GLOBAL.title}
+              style="max-width: 240px; max-height:50px"
+            />
+          )) || <div class="font-semibold">{GLOBAL.title}</div>
+        }
+      </TextLink>
+      <nav class="flex items-center gap-1 text-sm">
+        <TextLink href="https://buddyworks.wtf">
+          homepage</TextLink>
+              <span>{`|`}</span>
+              <TextLink href="https://docs.buddyworks.wtf">
+                docs
+              </TextLink>
+              <span>{`|`}</span>
+              <TextLink href="https://drive.google.com/drive/u/1/folders/1nXymwSYpDArC0JUnDkoe5CdwLELewp0-">
+                presskit
+              </TextLink>
+      </nav>
+    </div>
+  </Container>
+</header>

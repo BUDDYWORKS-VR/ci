@@ -12,7 +12,8 @@ export type GlobalSite = {
 };
 
 export const GLOBAL: GlobalSite = {
-  title: "BUDDYWORKS",
+  title: "BUDDYWORKS CI",
+  footerNote: "BUDDYWORKS", 
   description: "Official BUDDYWORKS design guidelines.",
   author: "BUDDYWORKS",
   logo: {

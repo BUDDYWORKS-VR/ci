@@ -3,15 +3,6 @@ import Container from "@components/Container.astro";
 import TextLink from "@components/TextLink.astro";
 import { getFilteredCollectionEntries, resolvePath } from "@lib/utils";
 import { GLOBAL } from "@consts";
-
-const anyBlogPosts =
-  (await getFilteredCollectionEntries("blog")).entries.length > 0;
-
-const anyTalks =
-  (await getFilteredCollectionEntries("talks")).entries.length > 0;
-
-const anyProjects =
-  (await getFilteredCollectionEntries("projects")).entries.length > 0;
 ---
 
 <header transition:persist>

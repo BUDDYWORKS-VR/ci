@@ -32,20 +32,20 @@ type ContactSite = ContactInfo[]
 export const CONTACT: ContactSite = [
   {
     type: "Email",
-    href: "mailto:email@example.com",
-    displayAs: "email@example.com",
+    href: "mailto:hi@buddyworks.wtf",
+    displayAs: "hi@buddyworks.wtf",
   },
   {
     type: "X",
-    href: "https://x.com/BillGates",
-    displayAs: "@BillGates on X",
+    href: "https://x.com/JustBuddy_DE",
+    displayAs: "@JustBuddy_DE on X",
   },
   {
     type: "GitHub",
-    href: "https://github.com/dotnet",
+    href: "https://github.com/BUDDYWORKS-VR",
   },
   {
     type: "LinkedIn",
-    href: "https://www.linkedin.com/in/williamhgates/",
+    href: "https://www.linkedin.com",
   },
 ];

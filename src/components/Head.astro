@@ -78,10 +78,6 @@ const ogImageFullUrl = new URL(resolvePath(ogImage), Astro.site);
 {description && <meta property="twitter:description" content={description} />}
 {twitterHandle && <meta property="twitter:site" content={twitterHandle} />}
 
-<!-- PageFind -->
-<link href={resolvePath("/pagefind/pagefind-ui.css")} rel="stylesheet" />
-<script is:inline src={resolvePath("/pagefind/pagefind-ui.js")}></script>
-
 <!-- Logo -->
 {
   GLOBAL.logo && (

@@ -11,7 +11,7 @@ table {
 th,
 td {
   padding: 8px; /* Adjust the value to control the spacing */
-  border: 1px solid #ddd; /* Optional: Adds borders for clarity */
+  border: 1px dashed #a8a8a8; /* Optional: Adds borders for clarity */
 }
 
 .highlighted {

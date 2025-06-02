@@ -15,7 +15,7 @@
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource/geist-mono": "^5.2.6",
     "@fontsource/geist-sans": "^5.2.5",
-    "astro": "^5.8.0",
+    "astro": "^5.8.1",
     "tailwind-merge": "^3.3.0",
     "typescript": "^5.8.3"
   },

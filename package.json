@@ -17,7 +17,7 @@
     "@fontsource/geist-sans": "^5.2.5",
     "astro": "^5.14.1",
     "tailwind-merge": "^3.3.1",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",

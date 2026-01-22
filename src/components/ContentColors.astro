@@ -35,6 +35,7 @@
       <button
         class="color-card group flex w-full items-center rounded-lg border border-black/10 bg-black/5 p-4 text-left transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
         data-hex={color.hex}
+        data-original-name={color.name}
         aria-label={`Copy ${color.name} hex code`}
       >
         <div
@@ -55,6 +56,9 @@
 </section>
 
 <script>
+  // Map to store timeout IDs for each card
+  const timeouts = new Map<Element, number>();
+
   function initColorCopy() {
     const cards = document.querySelectorAll(".color-card");
 
@@ -62,27 +66,36 @@
       card.addEventListener("click", async () => {
         const hex = card.getAttribute("data-hex");
         const nameLabel = card.querySelector(".color-name");
+        const originalText = card.getAttribute("data-original-name");
 
-        // Null check to satisfy TypeScript
-        if (!hex || !nameLabel) return;
+        if (!hex || !nameLabel || !originalText) return;
 
-        const originalText = nameLabel.textContent || "";
+        // Clear existing timeout for this specific card if it's currently showing "Copied!"
+        const existingTimeout = timeouts.get(card);
+        if (existingTimeout) {
+          clearTimeout(existingTimeout);
+        }
 
         await navigator.clipboard.writeText(hex);
 
-        // Visual feedback
+        // Apply feedback state
         nameLabel.textContent = "Copied!";
         nameLabel.classList.add("text-[#FDDA0D]", "font-bold");
+        nameLabel.classList.remove("opacity-70");
 
-        setTimeout(() => {
+        // Set a new timeout and store its ID
+        const timeoutId = window.setTimeout(() => {
           nameLabel.textContent = originalText;
           nameLabel.classList.remove("text-[#FDDA0D]", "font-bold");
+          nameLabel.classList.add("opacity-70");
+          timeouts.delete(card);
         }, 1500);
+
+        timeouts.set(card, timeoutId);
       });
     });
   }
 
-  // Initialize on page load and after Astro transitions
   document.addEventListener("DOMContentLoaded", initColorCopy);
   document.addEventListener("astro:after-swap", initColorCopy);
 </script>

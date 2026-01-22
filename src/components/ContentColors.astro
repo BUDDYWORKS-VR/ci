@@ -1,6 +1,6 @@
 <section class="animate">
   <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Colors</h2>
-  <p class="mb-8">Our standardized palette used for all brand assets.</p>
+  <p class="mb-8">Our standardized palette used for all brand assets. Click a color to copy its hex code.</p>
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {[
@@ -9,18 +9,53 @@
       { label: "Stencil A", hex: "#000000", name: "Plain Black", text: "text-white" },
       { label: "Stencil B", hex: "#191919", name: "Dark Grey", text: "text-white" }
     ].map(color => (
-      <div class="flex items-center p-4 rounded-lg border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5">
+      <button 
+        class="color-card flex items-center p-4 rounded-lg border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 transition-colors hover:bg-black/10 dark:hover:bg-white/10 w-full text-left"
+        data-hex={color.hex}
+        aria-label={`Copy ${color.name} hex code`}
+      >
         <div 
-          class={`size-16 rounded-md shadow-sm flex items-center justify-center font-mono text-xs ${color.text}`}
+          class={`color-swatch size-16 rounded-md shadow-sm flex items-center justify-center font-mono text-xs transition-transform active:scale-95 ${color.text}`}
           style={`background-color: ${color.hex}`}
         >
           {color.hex}
         </div>
         <div class="ml-4">
           <div class="text-sm font-semibold text-black dark:text-white">{color.label}</div>
-          <div class="text-sm opacity-70">{color.name}</div>
+          <div class="text-sm opacity-70 color-name">{color.name}</div>
         </div>
-      </div>
+      </button>
     ))}
   </div>
 </section>
+
+<script>
+  function initColorCopy() {
+    const cards = document.querySelectorAll('.color-card');
+    
+    cards.forEach(card => {
+      card.addEventListener('click', async () => {
+        const hex = card.getAttribute('data-hex');
+        const nameLabel = card.querySelector('.color-name');
+        const originalText = nameLabel.textContent;
+
+        if (hex) {
+          await navigator.clipboard.writeText(hex);
+          
+          // Visual feedback
+          nameLabel.textContent = 'Copied!';
+          nameLabel.classList.add('text-[#FDDA0D]', 'font-bold');
+          
+          setTimeout(() => {
+            nameLabel.textContent = originalText;
+            nameLabel.classList.remove('text-[#FDDA0D]', 'font-bold');
+          }, 1500);
+        }
+      });
+    });
+  }
+
+  // Initialize on page load and after Astro transitions
+  document.addEventListener('DOMContentLoaded', initColorCopy);
+  document.addEventListener('astro:after-swap', initColorCopy);
+</script>

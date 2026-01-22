@@ -1,30 +1,34 @@
----
----
+<section class="animate border-t border-black/10 dark:border-white/10 pt-12">
+  <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Association</h2>
+  <div class="prose dark:prose-invert max-w-none space-y-6">
+    <p>
+      BUDDYWORKS has strict rules about who we associate with, and how and where the brand is used.<br>
+      <br>
+      Association refers to official partnerships and endorsements.<br>
+      Under no circumstance does use of our brand by third parties infer endorsement.<br>
+      <br>
+      Official endorsements are marked as such, and only to be seen on our website(s), social media channels or by official announcements in our Discord.<br>
+      <br>
+      Regardless of such endorsements, we can not guarantee for the safety and correctness of any content maintained by third-parties, at any point.<br>
 
-<section>
-  <h2 class="text-3xl font-semibold text-black dark:text-white">Association</h2>
-  BUDDYWORKS has strict rules about who we associate with, and how and where the brand is used.<br><br>
-  Association refers to official partnerships and endorsements.<br><br>
-  Under no circumstance does any use of our brand by third parties infer endorsement on our end.<br><br>
-  Official endorsements are marked as such, and only to be seen on our <span style="color:#FDDA0D"><a href="https://buddyworks.wtf">website</a></span>(s), social media channels or by official announcements in our Discord.<br><br>
-  Regardless of such endorsements, we can not guarantee for the safety and correctness of any content maintained by third-parties, at any point.<br><br>
+    </p>
 
-  We use "creators" as a collective term for both creators and communities.<br><br>
+    <div class="grid md:grid-cols-3 gap-6">
+      {[
+        { title: "Adult Themes", desc: "Content marketed for adult audiences (SFW store listings excluded)." },
+        { title: "Politics/Religion", desc: "Projects spreading political or religious agendas." },
+        { title: "Horror", desc: "Content considered shocking or gruesome." }
+      ].map(item => (
+        <div class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
+          <h3 class="font-bold mb-2">{item.title}</h3>
+          <p class="text-sm opacity-70">{item.desc}</p>
+        </div>
+      ))}
+    </div>
 
-  Following is a list of creator-types we do not associate with: <br><br>
-  <b>Adult Themes</b><br>
-  Content specifically marketed for adult audiences.<br>
-  Avatar creators with such features are excluded as long as the store listings and its imagery can be considered SFW.<br><br>
-
-  <b>Politics or Religion</b><br>
-  Projects that aim to spread any political or religious agenda.<br><br>
-
-  <b>Horror</b><br>
-  Any content that might be considered shocking or gruesome.<br><br>
-
-  If you have any questions about whenever this applies to you, feel free to ask.<br>
-  The best way to do so is on my Discord.
-
+    <p class="text-sm italic">
+      Questions? Reach out via our 
+      <a href="https://buddyworks.wtf" class="text-[#FDDA0D]">Discord</a>.
+    </p>
+  </div>
 </section>
-
-

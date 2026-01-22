@@ -1,42 +1,46 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
-
 import ContentSpelling from "@components/ContentSpelling.astro";
 import ContentColors from "@components/ContentColors.astro";
 import ContentFormat from "@components/ContentFormat.astro";
 import ContentAssoc from "@components/ContentAssoc.astro";
 ---
 
-<Layout>
+<Layout title="Brand Guidelines | BUDDYWORKS">
   <Container>
-    <aside data-pagefind-ignore>
-      <div class="animate">
-      <h1 class="text-3xl font-semibold text-black dark:text-white">
-        Brand and Design Guidelines
-      </h1>
+    <div class="animate space-y-12 py-12">
+      <!-- Hero Section -->
       <section>
-        This page was made to help correctly using BUDDYWORKS Designs in
-        third-party media.
+        <h1 class="text-4xl font-bold text-black dark:text-white mb-6">
+          Brand and Design Guidelines
+        </h1>
+        <div class="space-y-4 text-lg leading-relaxed max-w-2xl">
+          <p>
+            This page ensures <strong>BUDDYWORKS</strong> is represented
+            consistently across all third-party media.
+          </p>
+          <p>
+            Access all official art assets through our 
+            <a 
+              href="https://drive.google.com/drive/u/1/folders/1nXymwSYpDArC0JUnDkoe5CdwLELewp0-" 
+              class="text-[#FDDA0D] hover:underline font-medium"
+            >
+              Presskit
+            </a>.
+          </p>
+        </div>
       </section>
-      <br />
-      <section>
-        For the sake of consistency, there are a few rules about using and
-        representing BUDDYWORKS in any form of media.
-      </section>
-      <br />
-      <section>
-        You can find all art assets here: <span style="color:#FDDA0D"><a href="https://drive.google.com/drive/u/1/folders/1nXymwSYpDArC0JUnDkoe5CdwLELewp0-">Presskit</a></span>
-      </section>
-      <br />
-      <ContentColors />
-      <br>
-      <ContentSpelling />
-      <br>
-      <ContentFormat />
-      <br>
-      <ContentAssoc />
+
+      <hr class="border-black/10 dark:border-white/10" />
+
+      <!-- Content Sections -->
+      <div class="space-y-20">
+        <ContentColors />
+        <ContentSpelling />
+        <ContentFormat />
+        <ContentAssoc />
+      </div>
     </div>
-    </aside>
   </Container>
 </Layout>

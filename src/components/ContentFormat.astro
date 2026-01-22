@@ -1,18 +1,29 @@
----
----
+<section class="animate grid md:grid-cols-2 gap-12">
+  <div>
+    <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Format</h2>
+    <ul class="space-y-3 list-disc list-inside opacity-80">
+      <li>Do not recolor the artwork colors.</li>
+      <li>Scaling must match original aspect ratio.</li>
+      <li>Opacity is allowed for watermarking.</li>
+    </ul>
+  </div>
 
-<section>
-  <h2 class="text-3xl font-semibold text-black dark:text-white">Format</h2>
-  - You can not recolor the artwork colors.<br /> 
-  - Scaling must match the original aspect ratio.<br />
-  - Opacity is allowed for watermarking.<br /><br />
-
-  <h2 class="text-3xl font-semibold text-black dark:text-white">Font</h2>
-  LEMON MILK Medium - Primary<br>
-  LEMON MILK Light - Secondary<br>
-  Inter - Fallback Primary<br>
-  Arial - Fallback Secondary<br>
-  <b>Italic font modes are not allowed.</b>
+  <div>
+    <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Typography</h2>
+    <div class="space-y-2 font-mono text-sm">
+      <div class="flex justify-between border-b border-black/10 dark:border-white/10 pb-1">
+        <span>LEMON MILK Medium</span>
+        <span class="opacity-60">Primary</span>
+      </div>
+      <div class="flex justify-between border-b border-black/10 dark:border-white/10 pb-1">
+        <span>LEMON MILK Light</span>
+        <span class="opacity-60">Secondary</span>
+      </div>
+      <div class="flex justify-between border-b border-black/10 dark:border-white/10 pb-1">
+        <span>Inter</span>
+        <span class="opacity-60">Fallback</span>
+      </div>
+      <p class="text-red-500 font-bold pt-2">Italic modes are not allowed.</p>
+    </div>
+  </div>
 </section>
-
-

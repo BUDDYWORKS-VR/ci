@@ -1,59 +1,26 @@
----
----
-
-<h1 class="text-3xl font-semibold text-black dark:text-white">Colors</h1>
-      <section>
-        Our standardized color palette, these are the main colors we use for pretty much everything.<br><br>
-        <table>
-          <thead>
-            <tr>
-              <th>Purpose</th>
-              <th>Hex Code</th>
-              <th>Color Name</th>
-              <th>Example</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Accent A</td>
-              <td>#FDDA0D</td>
-              <td>Cadmium Yellow</td>
-              <td><span style="color:#FDDA0D">BUDDYWORKS</span></td>
-            </tr>
-            <tr>
-              <td>Accent B</td>
-              <td>#e5e5e5</td>
-              <td>Glowing-Hairstrain White</td>
-              <td><span style="color:#e5e5e5">BUDDYWORKS</span></td>
-            </tr>
-            <tr>
-              <td>Stencil A</td>
-              <td>#000000</td>
-              <td>Plain Black</td>
-              <td><span class="highlighted" style="color:#000000">BUDDYWORKS</span></td>
-            </tr>
-            <tr>
-              <td>Stencil B</td>
-              <td>#191919</td>
-              <td>Dark Grey</td>
-              <td><span class="highlighted" style="color:#191919">BUDDYWORKS</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-<style>
-  .container {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the left */
-  }
-
-  .text-xs {
-    font-size: 0.75rem;
-  }
-
-  .font-light {
-    font-weight: 300;
-  }
-</style>
+<section class="animate">
+  <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Colors</h2>
+  <p class="mb-8">Our standardized palette used for all brand assets.</p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {[
+      { label: "Accent A", hex: "#FDDA0D", name: "Cadmium Yellow", text: "text-black" },
+      { label: "Accent B", hex: "#e5e5e5", name: "Glowing-Hairstrain White", text: "text-black" },
+      { label: "Stencil A", hex: "#000000", name: "Plain Black", text: "text-white" },
+      { label: "Stencil B", hex: "#191919", name: "Dark Grey", text: "text-white" }
+    ].map(color => (
+      <div class="flex items-center p-4 rounded-lg border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5">
+        <div 
+          class={`size-16 rounded-md shadow-sm flex items-center justify-center font-mono text-xs ${color.text}`}
+          style={`background-color: ${color.hex}`}
+        >
+          {color.hex}
+        </div>
+        <div class="ml-4">
+          <div class="text-sm font-semibold text-black dark:text-white">{color.label}</div>
+          <div class="text-sm opacity-70">{color.name}</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,52 +1,30 @@
----
----
+<section class="animate">
+  <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Spelling</h2>
+  <span>The only valid spelling and capitalization is “BUDDYWORKS”.</br>
+  BUDDYWORKS must be spelled in a single row and can’t be line-broken. ***</br></span></br>
+  <div class="grid md:grid-cols-2 gap-8">
+    <div class="space-y-4">
+      <div class="p-4 rounded-lg bg-green-500/10 border border-green-500/20">
+        <span class="text-xs font-bold uppercase text-green-600 dark:text-green-400 block mb-1">Correct</span>
+        <span class="text-xl font-mono">BUDDYWORKS</span>
+      </div>
+      
+      <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
+        <span class="text-xs font-bold uppercase text-red-600 dark:text-red-400 block mb-1">Incorrect</span>
+        <div class="grid grid-cols-2 gap-2 text-sm opacity-80">
+          
+          <span>BUDDY<br>WORKS***</span>
+          <span>BuddyWorks*</span>
+          <span>buddyworks**</span>
+          <span>Buddy Works</span>
+        </div>
+      </div>
+    </div>
 
-<section>
-  <h2 class="text-3xl font-semibold text-black dark:text-white">Spelling</h2>
-  The only valid spelling and capitalization is “BUDDYWORKS”.<br />
-  BUDDYWORKS must be spelled in a single row and can’t be line-broken. ***<br /><br />
-  <div class="container">
-    <table>
-      <tbody>
-        <tr>
-          <td>OK</td>
-          <td>BUDDYWORKS</td>
-        </tr>
-        <tr>
-          <td>Not OK</td>
-          <td>
-            BUDDY<br />
-            WORKS***<br />
-            <br />
-            Buddyworks*<br />
-            BuddyWorks<br />
-            buddyworks**<br />
-            buddy works<br />
-            Buddy Works
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="text-xs font-light"><span style="color:#7f7f7f">
-      * Permitted in code<br />
-      ** Permitted for package names and URL’s<br />
-      *** Permitted for first-party artwork<br /></span>
+    <div class="text-xs space-y-2 opacity-60 italic self-end">
+      <p>* Permitted in code</p>
+      <p>** Permitted for package names and URLs</p>
+      <p>*** Permitted for first-party artwork; otherwise, line-breaks are not allowed.</p>
     </div>
   </div>
 </section>
-
-<style>
-  .container {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the left */
-  }
-
-  .text-xs {
-    font-size: 0.75rem;
-  }
-
-  .font-light {
-    font-weight: 300;
-  }
-</style>

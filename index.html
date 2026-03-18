@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" data-lt-installed="true"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    (function () {
+    const theme = localStorage.getItem("theme");
+    if (
+      theme === "dark" ||
+      (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    })();
+    </script><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="https://ci.buddyworks.wtf/favicon.ico"><meta name="generator" content="Astro v5.18.0"><!-- Canonical URL --><link rel="canonical" href="https://ci.buddyworks.wtf/"><!-- RSS --><link rel="alternate" type="application/rss+xml" title="Brand Guidelines | BUDDYWORKS - BUDDYWORKS CI" href="https://ci.buddyworks.wtf/feed.xml"><!-- Primary Meta Tags --><title>Brand Guidelines | BUDDYWORKS - BUDDYWORKS CI</title><meta name="title" content="Brand Guidelines | BUDDYWORKS - BUDDYWORKS CI"><meta name="description" content="Official BUDDYWORKS design guidelines."><meta name="author" content="BUDDYWORKS"><!-- Open Graph / Facebook / LinkedIn --><meta property="og:type" content="article"><meta property="og:url" content="https://ci.buddyworks.wtf/"><meta property="og:title" content="Brand Guidelines | BUDDYWORKS - BUDDYWORKS CI"><meta property="og:image" content="https://ci.buddyworks.wtf/og-image.png"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ci.buddyworks.wtf/"><meta property="twitter:title" content="Brand Guidelines | BUDDYWORKS - BUDDYWORKS CI"><meta property="twitter:image" content="https://ci.buddyworks.wtf/og-image.png"><meta property="twitter:site" content="@JustBuddy_DE on X"><!-- Logo --></head><body class="vc-init"><div id="logo-srcs" style="display: none;" data-dark-src="/logo/logo_dark.png" data-light-src="/logo/logo_light.png"></div><script>
+  function init() {
+    preloadTheme();
+    onScroll();
+    animate();
+    updateThemeButtons();
+    addCopyCodeButtons();
+    setGiscusTheme();
+
+    const backToTop = document.getElementById("back-to-top");
+    backToTop?.addEventListener("click", (event) => scrollToTop(event));
+
+    const backToPrev = document.getElementById("back-to-prev");
+    backToPrev?.addEventListener("click", () => window.history.back());
+
+    const lightThemeButton = document.getElementById("light-theme-button");
+    lightThemeButton?.addEventListener("click", () => {
+      localStorage.setItem("theme", "light");
+      toggleTheme(false);
+      updateThemeButtons();
+    });
+
+    const darkThemeButton = document.getElementById("dark-theme-button");
+    darkThemeButton?.addEventListener("click", () => {
+      localStorage.setItem("theme", "dark");
+      toggleTheme(true);
+      updateThemeButtons();
+    });
+
+    const systemThemeButton = document.getElementById("system-theme-button");
+    systemThemeButton?.addEventListener("click", () => {
+      localStorage.setItem("theme", "system");
+      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+      updateThemeButtons();
+    });
+
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (event) => {
+        if (localStorage.theme === "system") {
+          toggleTheme(event.matches);
+        }
+      });
+
+    document.addEventListener("scroll", onScroll);
+  }
+
+  function updateThemeButtons() {
+    const theme = localStorage.getItem("theme");
+    const lightThemeButton = document.getElementById("light-theme-button");
+    const darkThemeButton = document.getElementById("dark-theme-button");
+    const systemThemeButton = document.getElementById("system-theme-button");
+
+    function removeActiveButtonTheme(button) {
+      button?.classList.remove("bg-black/5");
+      button?.classList.remove("dark:bg-white/5");
+    }
+
+    function addActiveButtonTheme(button) {
+      button?.classList.add("bg-black/5");
+      button?.classList.add("dark:bg-white/5");
+    }
+
+    removeActiveButtonTheme(lightThemeButton);
+    removeActiveButtonTheme(darkThemeButton);
+    removeActiveButtonTheme(systemThemeButton);
+
+    if (theme === "light") {
+      addActiveButtonTheme(lightThemeButton);
+    } else if (theme === "dark") {
+      addActiveButtonTheme(darkThemeButton);
+    } else {
+      addActiveButtonTheme(systemThemeButton);
+    }
+  }
+
+  function animate() {
+    const animateElements = document.querySelectorAll(".animate");
+
+    animateElements.forEach((element, index) => {
+      setTimeout(() => {
+        element.classList.add("show");
+      }, index * 100);
+    });
+  }
+
+  function onScroll() {
+    if (window.scrollY > 0) {
+      document.documentElement.classList.add("scrolled");
+    } else {
+      document.documentElement.classList.remove("scrolled");
+    }
+  }
+
+  function scrollToTop(event) {
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
+  function getLogoSrc(darkTheme) {
+    const logoSrcs = document.getElementById("logo-srcs");
+    if (!logoSrcs) {
+      return undefined;
+    }
+
+    if (darkTheme) {
+      return (
+        logoSrcs.getAttribute("data-dark-src") ??
+        logoSrcs.getAttribute("data-light-src")
+      );
+    }
+
+    if (!darkTheme) {
+      return (
+        logoSrcs.getAttribute("data-light-src") ??
+        logoSrcs.getAttribute("data-dark-src")
+      );
+    }
+  }
+
+  function toggleTheme(dark) {
+    const css = document.createElement("style");
+
+    css.appendChild(
+      document.createTextNode(
+        `* {
+             -webkit-transition: none !important;
+             -moz-transition: none !important;
+             -o-transition: none !important;
+             -ms-transition: none !important;
+             transition: none !important;
+          }
+        `,
+      ),
+    );
+
+    document.head.appendChild(css);
+
+    if (dark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    const logoSrc = getLogoSrc(dark);
+    const logo = document.getElementById("logo");
+
+    if (logoSrc && logo) {
+      logo.src = logoSrc;
+    }
+
+    window.getComputedStyle(css).opacity;
+    document.head.removeChild(css);
+
+    setGiscusTheme();
+  }
+
+  function preloadTheme() {
+    const userTheme = localStorage.theme;
+
+    if (userTheme === "light" || userTheme === "dark") {
+      toggleTheme(userTheme === "dark");
+    } else {
+      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    }
+  }
+
+  function addCopyCodeButtons() {
+    let copyButtonLabel = "📋";
+    let codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    async function copyCode(codeBlock, copyButton) {
+      const codeText = codeBlock.innerText;
+      const buttonText = copyButton.innerText;
+      const textToCopy = codeText.replace(buttonText, "");
+
+      await navigator.clipboard.writeText(textToCopy);
+      copyButton.innerText = "✅";
+
+      setTimeout(() => {
+        copyButton.innerText = copyButtonLabel;
+      }, 2000);
+    }
+
+    for (let codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      const copyButton = document.createElement("button");
+      copyButton.innerText = copyButtonLabel;
+      copyButton.classList = "copy-code";
+
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton?.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+  }
+
+  const setGiscusTheme = () => {
+    const giscus = document.querySelector(".giscus-frame");
+
+    const isDark = document.documentElement.classList.contains("dark");
+
+    if (giscus) {
+      const url = new URL(giscus.src);
+      url.searchParams.set("theme", isDark ? "dark" : "light");
+      giscus.src = url.toString();
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", () => init());
+  document.addEventListener("astro:after-swap", () => init());
+  preloadTheme();
+</script><link rel="stylesheet" href="index_files/index.BuJTbPLl.css">  <header data-astro-transition-persist="astro-l7r54iwe-1"> <div class="mx-auto max-w-screen-sm px-3"> <div class="flex flex-wrap justify-between gap-y-2"> <a href="https://ci.buddyworks.wtf/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out"> <img id="logo" src="index_files/logo_dark.png" alt="BUDDYWORKS CI" style="max-width: 240px; max-height:50px"> </a> <nav class="flex items-center gap-1 text-sm"> <a href="https://buddyworks.wtf/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> 
+homepage </a> <span>|</span> <a href="https://docs.buddyworks.wtf/" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> 
+docs
+ </a> <span>|</span> <a href="https://drive.google.com/drive/u/1/folders/1nXymwSYpDArC0JUnDkoe5CdwLELewp0-" target="_self" class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"> 
+presskit
+ </a> </nav> </div> </div> </header> <main>  <div class="mx-auto max-w-screen-sm px-3"> <div class="animate space-y-12 py-12 show"> <!-- Hero Section --> <section> <h1 class="text-4xl font-bold text-black dark:text-white mb-6">
+Brand and Design Guidelines
+</h1> <div class="space-y-4 text-lg leading-relaxed max-w-2xl"> <p>
+This page ensures <strong>BUDDYWORKS</strong> is represented
+            consistently across all third-party media.
+</p> <p>
+Access all official art assets through our
+<a href="https://drive.google.com/drive/u/1/folders/1nXymwSYpDArC0JUnDkoe5CdwLELewp0-" class="text-[#FDDA0D] hover:underline font-medium">
+Presskit
+</a>.
+</p> </div> </section> <hr class="border-black/10 dark:border-white/10"> <!-- Content Sections --> <div class="space-y-20"> <section class="animate show"> <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Colors</h2> <p class="mb-8">
+Our standardized palette used for all brand assets. Click a color to copy
+    its hex code.
+</p> <div class="grid grid-cols-1 md:grid-cols-2 gap-4"> <button class="color-card group flex w-full items-center rounded-lg border border-black/10 bg-black/5 p-4 text-left transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10" data-hex="#FDDA0D" data-original-name="Cadmium Yellow" aria-label="Copy Cadmium Yellow hex code"> <div class="color-swatch flex size-16 items-center justify-center rounded-md font-mono text-xs shadow-sm transition-transform active:scale-95 text-black" style="background-color: #FDDA0D"> #FDDA0D </div> <div class="ml-4"> <div class="text-sm font-semibold text-black dark:text-white"> Accent A </div> <div class="color-name text-sm opacity-70">Cadmium Yellow</div> </div> </button><button class="color-card group flex w-full items-center rounded-lg border border-black/10 bg-black/5 p-4 text-left transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10" data-hex="#e5e5e5" data-original-name="Glowing-Hairstrain White" aria-label="Copy Glowing-Hairstrain White hex code"> <div class="color-swatch flex size-16 items-center justify-center rounded-md font-mono text-xs shadow-sm transition-transform active:scale-95 text-black" style="background-color: #e5e5e5"> #e5e5e5 </div> <div class="ml-4"> <div class="text-sm font-semibold text-black dark:text-white"> Accent B </div> <div class="color-name text-sm opacity-70">Glowing-Hairstrain White</div> </div> </button><button class="color-card group flex w-full items-center rounded-lg border border-black/10 bg-black/5 p-4 text-left transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10" data-hex="#000000" data-original-name="Plain Black" aria-label="Copy Plain Black hex code"> <div class="color-swatch flex size-16 items-center justify-center rounded-md font-mono text-xs shadow-sm transition-transform active:scale-95 text-white" style="background-color: #000000"> #000000 </div> <div class="ml-4"> <div class="text-sm font-semibold text-black dark:text-white"> Stencil A </div> <div class="color-name text-sm opacity-70">Plain Black</div> </div> </button><button class="color-card group flex w-full items-center rounded-lg border border-black/10 bg-black/5 p-4 text-left transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10" data-hex="#191919" data-original-name="Dark Grey" aria-label="Copy Dark Grey hex code"> <div class="color-swatch flex size-16 items-center justify-center rounded-md font-mono text-xs shadow-sm transition-transform active:scale-95 text-white" style="background-color: #191919"> #191919 </div> <div class="ml-4"> <div class="text-sm font-semibold text-black dark:text-white"> Stencil B </div> <div class="color-name text-sm opacity-70">Dark Grey</div> </div> </button> </div> </section> <script type="module">const o=new Map;function s(){document.querySelectorAll(".color-card").forEach(t=>{t.addEventListener("click",async()=>{const n=t.getAttribute("data-hex"),e=t.querySelector(".color-name"),i=t.getAttribute("data-original-name");if(!n||!e||!i)return;const a=o.get(t);a&&clearTimeout(a),await navigator.clipboard.writeText(n),e.textContent="Copied!",e.classList.add("text-[#FDDA0D]","font-bold"),e.classList.remove("opacity-70");const c=window.setTimeout(()=>{e.textContent=i,e.classList.remove("text-[#FDDA0D]","font-bold"),e.classList.add("opacity-70"),o.delete(t)},1500);o.set(t,c)})})}document.addEventListener("DOMContentLoaded",s);document.addEventListener("astro:after-swap",s);</script> <section class="animate show"> <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Spelling</h2> <span>The only valid spelling and capitalization is “BUDDYWORKS”.<br>
+BUDDYWORKS must be spelled in a single row and can’t be line-broken. ***<br></span><br> <div class="grid md:grid-cols-2 gap-8"> <div class="space-y-4"> <div class="p-4 rounded-lg bg-green-500/10 border border-green-500/20"> <span class="text-xs font-bold uppercase text-green-600 dark:text-green-400 block mb-1">Correct</span> <span class="text-xl font-mono">BUDDYWORKS</span> </div> <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/20"> <span class="text-xs font-bold uppercase text-red-600 dark:text-red-400 block mb-1">Incorrect</span> <div class="grid grid-cols-2 gap-2 text-sm opacity-80"> <span>BUDDY<br>WORKS***</span> <span>BuddyWorks*</span> <span>buddyworks**</span> <span>Buddy Works</span> </div> </div> </div> <div class="text-xs space-y-2 opacity-60 italic self-end"> <p>* Permitted in code</p> <p>** Permitted for package names and URLs</p> <p>*** Permitted for first-party artwork; otherwise, line-breaks are not allowed.</p> </div> </div> </section> <section class="animate grid md:grid-cols-2 gap-12 show"> <div> <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Format</h2> <ul class="space-y-3 list-disc list-inside opacity-80"> <li>Do not recolor the artwork colors.</li> <li>Scaling must match original aspect ratio.</li> <li>Opacity is allowed for watermarking.</li> </ul> </div> <div> <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Typography</h2> <div class="space-y-2 font-mono text-sm"> <div class="flex justify-between border-b border-black/10 dark:border-white/10 pb-1"> <span>LEMON MILK Medium</span> <span class="opacity-60">Primary</span> </div> <div class="flex justify-between border-b border-black/10 dark:border-white/10 pb-1"> <span>LEMON MILK Light</span> <span class="opacity-60">Secondary</span> </div> <div class="flex justify-between border-b border-black/10 dark:border-white/10 pb-1"> <span>Inter</span> <span class="opacity-60">Fallback</span> </div> <p class="text-red-500 font-bold pt-2">Italic modes are not allowed.</p> </div> </div> </section> <section class="animate border-t border-black/10 dark:border-white/10 pt-12 show"> <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Association</h2> <div class="prose dark:prose-invert max-w-none space-y-6"> <p>
+BUDDYWORKS has strict rules about who we associate with, and how and where the brand is used.<br> <br>
+Association refers to official partnerships and endorsements.<br>
+Under no circumstance does use of our brand by third parties infer endorsement.<br> <br>
+Official endorsements are marked as such, and only to be seen on our 
+website(s), social media channels or by official announcements in our 
+Discord.<br> <br>
+Regardless of such endorsements, we can not guarantee for the safety and
+ correctness of any content maintained by third-parties, at any point.<br> </p> <b>We Specifically do not endorse projects and content of the following categories:</b> <div class="grid md:grid-cols-3 gap-6"> <div class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10"> <h3 class="font-bold mb-2">Adult Themes</h3> <p class="text-sm opacity-70">Content marketed for adult audiences (SFW store listings excluded).</p> </div><div class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10"> <h3 class="font-bold mb-2">Politics/Religion</h3> <p class="text-sm opacity-70">Projects spreading political or religious agendas.</p> </div><div class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10"> <h3 class="font-bold mb-2">Horror</h3> <p class="text-sm opacity-70">Content considered shocking or gruesome.</p> </div> </div> <p class="text-sm italic">
+Questions? Reach out via our
+<a href="https://buddyworks.wtf/" class="text-[#FDDA0D]">Discord</a>.
+</p> </div> </section> </div> </div> </div>  </main> <footer class="animate show"> <div class="mx-auto max-w-screen-sm px-3"> <div class="relative"> <div class="absolute -top-12 right-0"> <button id="back-to-top" class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"> <line x1="5" y1="12" x2="19" y2="12" class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line> <polyline points="12 5 5 12 12 19" class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline> </svg> <div class="text-sm">Back to top</div> </button> </div> </div> <div class="flex items-center justify-between"> <div>2026 | BUDDYWORKS</div> <div class="flex flex-wrap items-center gap-1.5"> <button id="light-theme-button" aria-label="Light theme" class="group flex size-9 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <button id="dark-theme-button" aria-label="Dark theme" class="group flex size-9 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <button id="system-theme-button" aria-label="System theme" class="group flex size-9 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5 bg-black/5 dark:bg-white/5"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="8" y1="21" x2="16" y2="21"></line> <line x1="12" y1="17" x2="12" y2="21"></line> </svg> </button> </div> </div> </div> </footer> </body></html>

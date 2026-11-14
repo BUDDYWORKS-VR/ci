@@ -1,2973 +1,364 @@
-<!DOCTYPE html>
-<html lang="en" class="dark" data-lt-installed="true">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <script>
-      (function () {
-        const theme = localStorage.getItem("theme");
-        if (
-          theme === "dark" ||
-          (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      })();
-    </script>
-    <!-- Global Metadata -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="https://ci.buddyworks.wtf/favicon.ico" />
-    <meta name="generator" content="Astro v5.18.0" />
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://ci.buddyworks.wtf/" />
-    <!-- RSS -->
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Brand Guidelines | BUDDYWORKS - BUDDYWORKS CI"
-      href="https://ci.buddyworks.wtf/feed.xml"
-    />
-    <!-- Primary Meta Tags -->
-    <title>Brand Guidelines | BUDDYWORKS - BUDDYWORKS CI</title>
-    <meta name="title" content="Brand Guidelines | BUDDYWORKS - BUDDYWORKS CI" />
-    <meta name="description" content="Official BUDDYWORKS design guidelines." />
-    <meta name="author" content="BUDDYWORKS" />
-    <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://ci.buddyworks.wtf/" />
-    <meta property="og:title" content="Brand Guidelines | BUDDYWORKS - BUDDYWORKS CI" />
-    <meta property="og:image" content="https://ci.buddyworks.wtf/og-image.png" />
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://ci.buddyworks.wtf/" />
-    <meta property="twitter:title" content="Brand Guidelines | BUDDYWORKS - BUDDYWORKS CI" />
-    <meta property="twitter:image" content="https://ci.buddyworks.wtf/og-image.png" />
-    <meta property="twitter:site" content="@JustBuddy_DE on X" />
-  </head>
-  <body class="vc-init">
-    <div
-      id="logo-srcs"
-      style="display: none;"
-      data-dark-src="/img/logo_dark.png"
-      data-light-src="/img/logo_light.png"
-    ></div>
-    <script>
-      function init() {
-        preloadTheme();
-        onScroll();
-        animate();
-        updateThemeButtons();
-        addCopyCodeButtons();
-        setGiscusTheme();
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brand Guidelines | BUDDYWORKS</title>
+  <meta name="description" content="Official BUDDYWORKS brand and design guidelines: colors, spelling, artwork usage, typography and association rules.">
+  <meta name="author" content="BUDDYWORKS">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#191919">
+  <link rel="canonical" href="https://ci.buddyworks.wtf/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
 
-        const backToTop = document.getElementById("back-to-top");
-        backToTop?.addEventListener("click", (event) => scrollToTop(event));
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BUDDYWORKS">
+  <meta property="og:url" content="https://ci.buddyworks.wtf/">
+  <meta property="og:title" content="Brand Guidelines | BUDDYWORKS">
+  <meta property="og:description" content="Official BUDDYWORKS brand and design guidelines.">
+  <meta property="og:image" content="https://ci.buddyworks.wtf/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@JustBuddy_DE">
 
-        const backToPrev = document.getElementById("back-to-prev");
-        backToPrev?.addEventListener("click", () => window.history.back());
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
 
-        const lightThemeButton = document.getElementById("light-theme-button");
-        lightThemeButton?.addEventListener("click", () => {
-          localStorage.setItem("theme", "light");
-          toggleTheme(false);
-          updateThemeButtons();
-        });
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 6 9 17l-5-5"/>
+    </symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18M6 6l12 12"/>
+    </symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 17 17 7M8 7h9v9"/>
+    </symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/>
+    </symbol>
+  </svg>
 
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        darkThemeButton?.addEventListener("click", () => {
-          localStorage.setItem("theme", "dark");
-          toggleTheme(true);
-          updateThemeButtons();
-        });
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="BUDDYWORKS brand guidelines, home">
+        <img src="img/logo.png" alt="BUDDYWORKS" width="116" height="26">
+        <span class="brand-sub">Brand guidelines</span>
+      </a>
+      <nav class="site-nav" aria-label="BUDDYWORKS sites">
+        <a href="https://buddyworks.wtf/">Homepage</a>
+        <a href="https://docs.buddyworks.wtf/">Docs</a>
+        <a href="https://drive.google.com/drive/u/1/folders/1nXymwSYpDArC0JUnDkoe5CdwLELewp0-" target="_blank" rel="noopener">
+          Presskit<svg aria-hidden="true"><use href="#i-ext"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
 
-        const systemThemeButton = document.getElementById("system-theme-button");
-        systemThemeButton?.addEventListener("click", () => {
-          localStorage.setItem("theme", "system");
-          toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
-          updateThemeButtons();
-        });
-
-        window
-          .matchMedia("(prefers-color-scheme: dark)")
-          .addEventListener("change", (event) => {
-            if (localStorage.theme === "system") {
-              toggleTheme(event.matches);
-            }
-          });
-
-        document.addEventListener("scroll", onScroll);
-      }
-
-      function updateThemeButtons() {
-        const theme = localStorage.getItem("theme");
-        const lightThemeButton = document.getElementById("light-theme-button");
-        const darkThemeButton = document.getElementById("dark-theme-button");
-        const systemThemeButton = document.getElementById("system-theme-button");
-
-        function removeActiveButtonTheme(button) {
-          button?.classList.remove("bg-black/5");
-          button?.classList.remove("dark:bg-white/5");
-        }
-
-        function addActiveButtonTheme(button) {
-          button?.classList.add("bg-black/5");
-          button?.classList.add("dark:bg-white/5");
-        }
-
-        removeActiveButtonTheme(lightThemeButton);
-        removeActiveButtonTheme(darkThemeButton);
-        removeActiveButtonTheme(systemThemeButton);
-
-        if (theme === "light") {
-          addActiveButtonTheme(lightThemeButton);
-        } else if (theme === "dark") {
-          addActiveButtonTheme(darkThemeButton);
-        } else {
-          addActiveButtonTheme(systemThemeButton);
-        }
-      }
-
-      function animate() {
-        const animateElements = document.querySelectorAll(".animate");
-
-        animateElements.forEach((element, index) => {
-          setTimeout(() => {
-            element.classList.add("show");
-          }, index * 100);
-        });
-      }
-
-      function onScroll() {
-        if (window.scrollY > 0) {
-          document.documentElement.classList.add("scrolled");
-        } else {
-          document.documentElement.classList.remove("scrolled");
-        }
-      }
-
-      function scrollToTop(event) {
-        event.preventDefault();
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      }
-
-      function getLogoSrc(darkTheme) {
-        const logoSrcs = document.getElementById("logo-srcs");
-        if (!logoSrcs) {
-          return undefined;
-        }
-
-        if (darkTheme) {
-          return (
-            logoSrcs.getAttribute("data-dark-src") ??
-            logoSrcs.getAttribute("data-light-src")
-          );
-        }
-
-        if (!darkTheme) {
-          return (
-            logoSrcs.getAttribute("data-light-src") ??
-            logoSrcs.getAttribute("data-dark-src")
-          );
-        }
-      }
-
-      function toggleTheme(dark) {
-        const css = document.createElement("style");
-
-        css.appendChild(
-          document.createTextNode(
-            `* {
-             -webkit-transition: none !important;
-             -moz-transition: none !important;
-             -o-transition: none !important;
-             -ms-transition: none !important;
-             transition: none !important;
-          }
-        `,
-          ),
-        );
-
-        document.head.appendChild(css);
-
-        if (dark) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-
-        const logoSrc = getLogoSrc(dark);
-        const logo = document.getElementById("logo");
-
-        if (logoSrc && logo) {
-          logo.src = logoSrc;
-        }
-
-        window.getComputedStyle(css).opacity;
-        document.head.removeChild(css);
-
-        setGiscusTheme();
-      }
-
-      function preloadTheme() {
-        const userTheme = localStorage.theme;
-
-        if (userTheme === "light" || userTheme === "dark") {
-          toggleTheme(userTheme === "dark");
-        } else {
-          toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
-        }
-      }
-
-      function addCopyCodeButtons() {
-        let copyButtonLabel = "📋";
-        let codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-        async function copyCode(codeBlock, copyButton) {
-          const codeText = codeBlock.innerText;
-          const buttonText = copyButton.innerText;
-          const textToCopy = codeText.replace(buttonText, "");
-
-          await navigator.clipboard.writeText(textToCopy);
-          copyButton.innerText = "✅";
-
-          setTimeout(() => {
-            copyButton.innerText = copyButtonLabel;
-          }, 2000);
-        }
-
-        for (let codeBlock of codeBlocks) {
-          const wrapper = document.createElement("div");
-          wrapper.style.position = "relative";
-
-          const copyButton = document.createElement("button");
-          copyButton.innerText = copyButtonLabel;
-          copyButton.classList = "copy-code";
-
-          codeBlock.setAttribute("tabindex", "0");
-          codeBlock.appendChild(copyButton);
-
-          codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-          wrapper.appendChild(codeBlock);
-
-          copyButton?.addEventListener("click", async () => {
-            await copyCode(codeBlock, copyButton);
-          });
-        }
-      }
-
-      const setGiscusTheme = () => {
-        const giscus = document.querySelector(".giscus-frame");
-
-        const isDark = document.documentElement.classList.contains("dark");
-
-        if (giscus) {
-          const url = new URL(giscus.src);
-          url.searchParams.set("theme", isDark ? "dark" : "light");
-          giscus.src = url.toString();
-        }
-      };
-
-      document.addEventListener("DOMContentLoaded", () => init());
-      document.addEventListener("astro:after-swap", () => init());
-      preloadTheme();
-    </script>
-    <style>
-      *,
-      :before,
-      :after {
-        --tw-border-spacing-x: 0;
-        --tw-border-spacing-y: 0;
-        --tw-translate-x: 0;
-        --tw-translate-y: 0;
-        --tw-rotate: 0;
-        --tw-skew-x: 0;
-        --tw-skew-y: 0;
-        --tw-scale-x: 1;
-        --tw-scale-y: 1;
-        --tw-pan-x: ;
-        --tw-pan-y: ;
-        --tw-pinch-zoom: ;
-        --tw-scroll-snap-strictness: proximity;
-        --tw-gradient-from-position: ;
-        --tw-gradient-via-position: ;
-        --tw-gradient-to-position: ;
-        --tw-ordinal: ;
-        --tw-slashed-zero: ;
-        --tw-numeric-figure: ;
-        --tw-numeric-spacing: ;
-        --tw-numeric-fraction: ;
-        --tw-ring-inset: ;
-        --tw-ring-offset-width: 0px;
-        --tw-ring-offset-color: #fff;
-        --tw-ring-color: rgb(59 130 246 / 0.5);
-        --tw-ring-offset-shadow: 0 0 #0000;
-        --tw-ring-shadow: 0 0 #0000;
-        --tw-shadow: 0 0 #0000;
-        --tw-shadow-colored: 0 0 #0000;
-        --tw-blur: ;
-        --tw-brightness: ;
-        --tw-contrast: ;
-        --tw-grayscale: ;
-        --tw-hue-rotate: ;
-        --tw-invert: ;
-        --tw-saturate: ;
-        --tw-sepia: ;
-        --tw-drop-shadow: ;
-        --tw-backdrop-blur: ;
-        --tw-backdrop-brightness: ;
-        --tw-backdrop-contrast: ;
-        --tw-backdrop-grayscale: ;
-        --tw-backdrop-hue-rotate: ;
-        --tw-backdrop-invert: ;
-        --tw-backdrop-opacity: ;
-        --tw-backdrop-saturate: ;
-        --tw-backdrop-sepia: ;
-        --tw-contain-size: ;
-        --tw-contain-layout: ;
-        --tw-contain-paint: ;
-        --tw-contain-style: ;
-      }
-      ::backdrop {
-        --tw-border-spacing-x: 0;
-        --tw-border-spacing-y: 0;
-        --tw-translate-x: 0;
-        --tw-translate-y: 0;
-        --tw-rotate: 0;
-        --tw-skew-x: 0;
-        --tw-skew-y: 0;
-        --tw-scale-x: 1;
-        --tw-scale-y: 1;
-        --tw-pan-x: ;
-        --tw-pan-y: ;
-        --tw-pinch-zoom: ;
-        --tw-scroll-snap-strictness: proximity;
-        --tw-gradient-from-position: ;
-        --tw-gradient-via-position: ;
-        --tw-gradient-to-position: ;
-        --tw-ordinal: ;
-        --tw-slashed-zero: ;
-        --tw-numeric-figure: ;
-        --tw-numeric-spacing: ;
-        --tw-numeric-fraction: ;
-        --tw-ring-inset: ;
-        --tw-ring-offset-width: 0px;
-        --tw-ring-offset-color: #fff;
-        --tw-ring-color: rgb(59 130 246 / 0.5);
-        --tw-ring-offset-shadow: 0 0 #0000;
-        --tw-ring-shadow: 0 0 #0000;
-        --tw-shadow: 0 0 #0000;
-        --tw-shadow-colored: 0 0 #0000;
-        --tw-blur: ;
-        --tw-brightness: ;
-        --tw-contrast: ;
-        --tw-grayscale: ;
-        --tw-hue-rotate: ;
-        --tw-invert: ;
-        --tw-saturate: ;
-        --tw-sepia: ;
-        --tw-drop-shadow: ;
-        --tw-backdrop-blur: ;
-        --tw-backdrop-brightness: ;
-        --tw-backdrop-contrast: ;
-        --tw-backdrop-grayscale: ;
-        --tw-backdrop-hue-rotate: ;
-        --tw-backdrop-invert: ;
-        --tw-backdrop-opacity: ;
-        --tw-backdrop-saturate: ;
-        --tw-backdrop-sepia: ;
-        --tw-contain-size: ;
-        --tw-contain-layout: ;
-        --tw-contain-paint: ;
-        --tw-contain-style: ;
-      }
-      *,
-      :before,
-      :after {
-        box-sizing: border-box;
-        border-width: 0;
-        border-style: solid;
-        border-color: #e5e7eb;
-      }
-      :before,
-      :after {
-        --tw-content: "";
-      }
-      html,
-      :host {
-        line-height: 1.5;
-        -webkit-text-size-adjust: 100%;
-        -moz-tab-size: 4;
-        -o-tab-size: 4;
-        tab-size: 4;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-          "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
-        font-feature-settings: normal;
-        font-variation-settings: normal;
-        -webkit-tap-highlight-color: transparent;
-      }
-      body {
-        margin: 0;
-        line-height: inherit;
-      }
-      hr {
-        height: 0;
-        color: inherit;
-        border-top-width: 1px;
-      }
-      abbr:where([title]) {
-        -webkit-text-decoration: underline dotted;
-        text-decoration: underline dotted;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-size: inherit;
-        font-weight: inherit;
-      }
-      a {
-        color: inherit;
-        text-decoration: inherit;
-      }
-      b,
-      strong {
-        font-weight: bolder;
-      }
-      code,
-      kbd,
-      samp,
-      pre {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-          "Liberation Mono", "Courier New", monospace;
-        font-feature-settings: normal;
-        font-variation-settings: normal;
-        font-size: 1em;
-      }
-      small {
-        font-size: 80%;
-      }
-      sub,
-      sup {
-        font-size: 75%;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline;
-      }
-      sub {
-        bottom: -0.25em;
-      }
-      sup {
-        top: -0.5em;
-      }
-      table {
-        text-indent: 0;
-        border-color: inherit;
-        border-collapse: collapse;
-      }
-      button,
-      input,
-      optgroup,
-      select,
-      textarea {
-        font-family: inherit;
-        font-feature-settings: inherit;
-        font-variation-settings: inherit;
-        font-size: 100%;
-        font-weight: inherit;
-        line-height: inherit;
-        letter-spacing: inherit;
-        color: inherit;
-        margin: 0;
-        padding: 0;
-      }
-      button,
-      select {
-        text-transform: none;
-      }
-      button,
-      input:where([type="button"]),
-      input:where([type="reset"]),
-      input:where([type="submit"]) {
-        -webkit-appearance: button;
-        background-color: transparent;
-        background-image: none;
-      }
-      :-moz-focusring {
-        outline: auto;
-      }
-      :-moz-ui-invalid {
-        box-shadow: none;
-      }
-      progress {
-        vertical-align: baseline;
-      }
-      ::-webkit-inner-spin-button,
-      ::-webkit-outer-spin-button {
-        height: auto;
-      }
-      [type="search"] {
-        -webkit-appearance: textfield;
-        outline-offset: -2px;
-      }
-      ::-webkit-search-decoration {
-        -webkit-appearance: none;
-      }
-      ::-webkit-file-upload-button {
-        -webkit-appearance: button;
-        font: inherit;
-      }
-      summary {
-        display: list-item;
-      }
-      blockquote,
-      dl,
-      dd,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      hr,
-      figure,
-      p,
-      pre {
-        margin: 0;
-      }
-      fieldset {
-        margin: 0;
-        padding: 0;
-      }
-      legend {
-        padding: 0;
-      }
-      ol,
-      ul,
-      menu {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      dialog {
-        padding: 0;
-      }
-      textarea {
-        resize: vertical;
-      }
-      input::-moz-placeholder,
-      textarea::-moz-placeholder {
-        opacity: 1;
-        color: #9ca3af;
-      }
-      input::placeholder,
-      textarea::placeholder {
-        opacity: 1;
-        color: #9ca3af;
-      }
-      button,
-      [role="button"] {
-        cursor: pointer;
-      }
-      :disabled {
-        cursor: default;
-      }
-      img,
-      svg,
-      video,
-      canvas,
-      audio,
-      iframe,
-      embed,
-      object {
-        display: block;
-        vertical-align: middle;
-      }
-      img,
-      video {
-        max-width: 100%;
-        height: auto;
-      }
-      [hidden]:where(:not([hidden="until-found"])) {
-        display: none;
-      }
-      .prose {
-        color: var(--tw-prose-body);
-        max-width: 65ch;
-      }
-      .prose :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 1.25em;
-        margin-bottom: 1.25em;
-      }
-      .prose
-        :where([class~="lead"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-lead);
-        font-size: 1.25em;
-        line-height: 1.6;
-        margin-top: 1.2em;
-        margin-bottom: 1.2em;
-      }
-      .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-links);
-        text-decoration: underline;
-        font-weight: 500;
-      }
-      .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-bold);
-        font-weight: 600;
-      }
-      .prose :where(a strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      .prose
-        :where(blockquote strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      .prose
-        :where(thead th strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      .prose :where(ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: decimal;
-        margin-top: 1.25em;
-        margin-bottom: 1.25em;
-        padding-inline-start: 1.625em;
-      }
-      .prose :where(ol[type="A"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: upper-alpha;
-      }
-      .prose :where(ol[type="a"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: lower-alpha;
-      }
-      .prose
-        :where(ol[type="A s"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: upper-alpha;
-      }
-      .prose
-        :where(ol[type="a s"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: lower-alpha;
-      }
-      .prose :where(ol[type="I"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: upper-roman;
-      }
-      .prose :where(ol[type="i"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: lower-roman;
-      }
-      .prose
-        :where(ol[type="I s"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: upper-roman;
-      }
-      .prose
-        :where(ol[type="i s"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: lower-roman;
-      }
-      .prose
-        :where(ol[type="1"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: decimal;
-      }
-      .prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: disc;
-        margin-top: 1.25em;
-        margin-bottom: 1.25em;
-        padding-inline-start: 1.625em;
-      }
-      .prose
-        :where(ol > li):not(:where([class~="not-prose"], [class~="not-prose"] *))::marker {
-        font-weight: 400;
-        color: var(--tw-prose-counters);
-      }
-      .prose
-        :where(ul > li):not(:where([class~="not-prose"], [class~="not-prose"] *))::marker {
-        color: var(--tw-prose-bullets);
-      }
-      .prose :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 600;
-        margin-top: 1.25em;
-      }
-      .prose :where(hr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        border-color: var(--tw-prose-hr);
-        border-top-width: 1px;
-        margin-top: 3em;
-        margin-bottom: 3em;
-      }
-      .prose
-        :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 500;
-        font-style: italic;
-        color: var(--tw-prose-quotes);
-        border-inline-start-width: 0.25rem;
-        border-inline-start-color: var(--tw-prose-quote-borders);
-        quotes: "“" "”" "‘" "’";
-        margin-top: 1.6em;
-        margin-bottom: 1.6em;
-        padding-inline-start: 1em;
-      }
-      .prose
-        :where(blockquote p:first-of-type):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ):before {
-        content: open-quote;
-      }
-      .prose
-        :where(blockquote p:last-of-type):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ):after {
-        content: close-quote;
-      }
-      .prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 800;
-        font-size: 2.25em;
-        margin-top: 0;
-        margin-bottom: 0.8888889em;
-        line-height: 1.1111111;
-      }
-      .prose :where(h1 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 900;
-        color: inherit;
-      }
-      .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 700;
-        font-size: 1.5em;
-        margin-top: 2em;
-        margin-bottom: 1em;
-        line-height: 1.3333333;
-      }
-      .prose :where(h2 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 800;
-        color: inherit;
-      }
-      .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 600;
-        font-size: 1.25em;
-        margin-top: 1.6em;
-        margin-bottom: 0.6em;
-        line-height: 1.6;
-      }
-      .prose :where(h3 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 700;
-        color: inherit;
-      }
-      .prose :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 600;
-        margin-top: 1.5em;
-        margin-bottom: 0.5em;
-        line-height: 1.5;
-      }
-      .prose :where(h4 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 700;
-        color: inherit;
-      }
-      .prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
-      .prose :where(picture):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        display: block;
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
-      .prose :where(video):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
-      .prose :where(kbd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 500;
-        font-family: inherit;
-        color: var(--tw-prose-kbd);
-        box-shadow: 0 0 0 1px var(--tw-prose-kbd-shadows),
-          0 3px 0 var(--tw-prose-kbd-shadows);
-        font-size: 0.875em;
-        border-radius: 0.3125rem;
-        padding-top: 0.1875em;
-        padding-inline-end: 0.375em;
-        padding-bottom: 0.1875em;
-        padding-inline-start: 0.375em;
-      }
-      .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-code);
-        font-weight: 600;
-        font-size: 0.875em;
-      }
-      .prose
-        :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)):before {
-        content: "`";
-      }
-      .prose
-        :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)):after {
-        content: "`";
-      }
-      .prose :where(a code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      .prose :where(h1 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      .prose :where(h2 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-        font-size: 0.875em;
-      }
-      .prose :where(h3 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-        font-size: 0.9em;
-      }
-      .prose :where(h4 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      .prose
-        :where(blockquote code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      .prose
-        :where(thead th code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      .prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-pre-code);
-        background-color: var(--tw-prose-pre-bg);
-        overflow-x: auto;
-        font-weight: 400;
-        font-size: 0.875em;
-        line-height: 1.7142857;
-        margin-top: 1.7142857em;
-        margin-bottom: 1.7142857em;
-        border-radius: 0.375rem;
-        padding-top: 0.8571429em;
-        padding-inline-end: 1.1428571em;
-        padding-bottom: 0.8571429em;
-        padding-inline-start: 1.1428571em;
-      }
-      .prose :where(pre code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        background-color: transparent;
-        border-width: 0;
-        border-radius: 0;
-        padding: 0;
-        font-weight: inherit;
-        color: inherit;
-        font-size: inherit;
-        font-family: inherit;
-        line-height: inherit;
-      }
-      .prose
-        :where(pre code):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ):before {
-        content: none;
-      }
-      .prose
-        :where(pre code):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ):after {
-        content: none;
-      }
-      .prose :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        width: 100%;
-        table-layout: auto;
-        margin-top: 2em;
-        margin-bottom: 2em;
-        font-size: 0.875em;
-        line-height: 1.7142857;
-      }
-      .prose :where(thead):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        border-bottom-width: 1px;
-        border-bottom-color: var(--tw-prose-th-borders);
-      }
-      .prose :where(thead th):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 600;
-        vertical-align: bottom;
-        padding-inline-end: 0.5714286em;
-        padding-bottom: 0.5714286em;
-        padding-inline-start: 0.5714286em;
-      }
-      .prose
-        :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        border-bottom-width: 1px;
-        border-bottom-color: var(--tw-prose-td-borders);
-      }
-      .prose
-        :where(tbody tr:last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        border-bottom-width: 0;
-      }
-      .prose :where(tbody td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        vertical-align: baseline;
-      }
-      .prose :where(tfoot):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        border-top-width: 1px;
-        border-top-color: var(--tw-prose-th-borders);
-      }
-      .prose :where(tfoot td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        vertical-align: top;
-      }
-      .prose :where(th, td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        text-align: start;
-      }
-      .prose
-        :where(figure > *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      .prose
-        :where(figcaption):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-captions);
-        font-size: 0.875em;
-        line-height: 1.4285714;
-        margin-top: 0.8571429em;
-      }
-      .prose {
-        --tw-prose-body: #374151;
-        --tw-prose-headings: #111827;
-        --tw-prose-lead: #4b5563;
-        --tw-prose-links: #111827;
-        --tw-prose-bold: #111827;
-        --tw-prose-counters: #6b7280;
-        --tw-prose-bullets: #d1d5db;
-        --tw-prose-hr: #e5e7eb;
-        --tw-prose-quotes: #111827;
-        --tw-prose-quote-borders: #e5e7eb;
-        --tw-prose-captions: #6b7280;
-        --tw-prose-kbd: #111827;
-        --tw-prose-kbd-shadows: rgb(17 24 39 / 10%);
-        --tw-prose-code: #111827;
-        --tw-prose-pre-code: #e5e7eb;
-        --tw-prose-pre-bg: #1f2937;
-        --tw-prose-th-borders: #d1d5db;
-        --tw-prose-td-borders: #e5e7eb;
-        --tw-prose-invert-body: #d1d5db;
-        --tw-prose-invert-headings: #fff;
-        --tw-prose-invert-lead: #9ca3af;
-        --tw-prose-invert-links: #fff;
-        --tw-prose-invert-bold: #fff;
-        --tw-prose-invert-counters: #9ca3af;
-        --tw-prose-invert-bullets: #4b5563;
-        --tw-prose-invert-hr: #374151;
-        --tw-prose-invert-quotes: #f3f4f6;
-        --tw-prose-invert-quote-borders: #374151;
-        --tw-prose-invert-captions: #9ca3af;
-        --tw-prose-invert-kbd: #fff;
-        --tw-prose-invert-kbd-shadows: rgb(255 255 255 / 10%);
-        --tw-prose-invert-code: #fff;
-        --tw-prose-invert-pre-code: #d1d5db;
-        --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
-        --tw-prose-invert-th-borders: #4b5563;
-        --tw-prose-invert-td-borders: #374151;
-        font-size: 1rem;
-        line-height: 1.75;
-      }
-      .prose
-        :where(picture > img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      .prose :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-      }
-      .prose :where(ol > li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        padding-inline-start: 0.375em;
-      }
-      .prose :where(ul > li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        padding-inline-start: 0.375em;
-      }
-      .prose
-        :where(.prose > ul > li p):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-top: 0.75em;
-        margin-bottom: 0.75em;
-      }
-      .prose
-        :where(.prose > ul > li > p:first-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-top: 1.25em;
-      }
-      .prose
-        :where(.prose > ul > li > p:last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-bottom: 1.25em;
-      }
-      .prose
-        :where(.prose > ol > li > p:first-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-top: 1.25em;
-      }
-      .prose
-        :where(.prose > ol > li > p:last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-bottom: 1.25em;
-      }
-      .prose
-        :where(ul ul, ul ol, ol ul, ol ol):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-top: 0.75em;
-        margin-bottom: 0.75em;
-      }
-      .prose :where(dl):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 1.25em;
-        margin-bottom: 1.25em;
-      }
-      .prose :where(dd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0.5em;
-        padding-inline-start: 1.625em;
-      }
-      .prose :where(hr + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-      }
-      .prose :where(h2 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-      }
-      .prose :where(h3 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-      }
-      .prose :where(h4 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-      }
-      .prose
-        :where(thead th:first-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        padding-inline-start: 0;
-      }
-      .prose
-        :where(thead th:last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        padding-inline-end: 0;
-      }
-      .prose
-        :where(tbody td, tfoot td):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        padding-top: 0.5714286em;
-        padding-inline-end: 0.5714286em;
-        padding-bottom: 0.5714286em;
-        padding-inline-start: 0.5714286em;
-      }
-      .prose
-        :where(tbody td:first-child, tfoot td:first-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        padding-inline-start: 0;
-      }
-      .prose
-        :where(tbody td:last-child, tfoot td:last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        padding-inline-end: 0;
-      }
-      .prose :where(figure):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
-      .prose
-        :where(.prose > :first-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-top: 0;
-      }
-      .prose
-        :where(.prose > :last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-bottom: 0;
-      }
-      .absolute {
-        position: absolute;
-      }
-      .relative {
-        position: relative;
-      }
-      .-top-12 {
-        top: -3rem;
-      }
-      .left-2 {
-        left: 0.5rem;
-      }
-      .right-0 {
-        right: 0;
-      }
-      .top-1\/2 {
-        top: 50%;
-      }
-      .mx-auto {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .mb-1 {
-        margin-bottom: 0.25rem;
-      }
-      .mb-2 {
-        margin-bottom: 0.5rem;
-      }
-      .mb-6 {
-        margin-bottom: 1.5rem;
-      }
-      .mb-8 {
-        margin-bottom: 2rem;
-      }
-      .ml-4 {
-        margin-left: 1rem;
-      }
-      .mt-16 {
-        margin-top: 4rem;
-      }
-      .block {
-        display: block;
-      }
-      .inline-block {
-        display: inline-block;
-      }
-      .flex {
-        display: flex;
-      }
-      .grid {
-        display: grid;
-      }
-      .size-16 {
-        width: 4rem;
-        height: 4rem;
-      }
-      .size-4 {
-        width: 1rem;
-        height: 1rem;
-      }
-      .size-9 {
-        width: 2.25rem;
-        height: 2.25rem;
-      }
-      .w-fit {
-        width: -moz-fit-content;
-        width: fit-content;
-      }
-      .w-full {
-        width: 100%;
-      }
-      .max-w-2xl {
-        max-width: 42rem;
-      }
-      .max-w-none {
-        max-width: none;
-      }
-      .max-w-screen-sm {
-        max-width: 640px;
-      }
-      .-translate-y-1\/2 {
-        --tw-translate-y: -50%;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      }
-      .translate-x-1 {
-        --tw-translate-x: 0.25rem;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      }
-      .translate-x-2 {
-        --tw-translate-x: 0.5rem;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      }
-      .rotate-90 {
-        --tw-rotate: 90deg;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      }
-      .scale-x-0 {
-        --tw-scale-x: 0;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      }
-      .list-inside {
-        list-style-position: inside;
-      }
-      .list-disc {
-        list-style-type: disc;
-      }
-      .grid-cols-1 {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-      }
-      .grid-cols-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .flex-wrap {
-        flex-wrap: wrap;
-      }
-      .flex-nowrap {
-        flex-wrap: nowrap;
-      }
-      .place-items-center {
-        place-items: center;
-      }
-      .items-center {
-        align-items: center;
-      }
-      .justify-center {
-        justify-content: center;
-      }
-      .justify-between {
-        justify-content: space-between;
-      }
-      .gap-1 {
-        gap: 0.25rem;
-      }
-      .gap-1\.5 {
-        gap: 0.375rem;
-      }
-      .gap-12 {
-        gap: 3rem;
-      }
-      .gap-2 {
-        gap: 0.5rem;
-      }
-      .gap-3 {
-        gap: 0.75rem;
-      }
-      .gap-4 {
-        gap: 1rem;
-      }
-      .gap-6 {
-        gap: 1.5rem;
-      }
-      .gap-8 {
-        gap: 2rem;
-      }
-      .gap-y-2 {
-        row-gap: 0.5rem;
-      }
-      .space-y-12 > :not([hidden]) ~ :not([hidden]) {
-        --tw-space-y-reverse: 0;
-        margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
-        margin-bottom: calc(3rem * var(--tw-space-y-reverse));
-      }
-      .space-y-2 > :not([hidden]) ~ :not([hidden]) {
-        --tw-space-y-reverse: 0;
-        margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-        margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
-      }
-      .space-y-20 > :not([hidden]) ~ :not([hidden]) {
-        --tw-space-y-reverse: 0;
-        margin-top: calc(5rem * calc(1 - var(--tw-space-y-reverse)));
-        margin-bottom: calc(5rem * var(--tw-space-y-reverse));
-      }
-      .space-y-3 > :not([hidden]) ~ :not([hidden]) {
-        --tw-space-y-reverse: 0;
-        margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
-        margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
-      }
-      .space-y-4 > :not([hidden]) ~ :not([hidden]) {
-        --tw-space-y-reverse: 0;
-        margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-        margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-      }
-      .space-y-6 > :not([hidden]) ~ :not([hidden]) {
-        --tw-space-y-reverse: 0;
-        margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-        margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
-      }
-      .self-end {
-        align-self: flex-end;
-      }
-      .rounded {
-        border-radius: 0.25rem;
-      }
-      .rounded-lg {
-        border-radius: 0.5rem;
-      }
-      .rounded-md {
-        border-radius: 0.375rem;
-      }
-      .border {
-        border-width: 1px;
-      }
-      .border-b {
-        border-bottom-width: 1px;
-      }
-      .border-t {
-        border-top-width: 1px;
-      }
-      .border-black\/10 {
-        border-color: #0000001a;
-      }
-      .border-black\/15 {
-        border-color: #00000026;
-      }
-      .border-green-500\/20 {
-        border-color: #22c55e33;
-      }
-      .border-red-500\/20 {
-        border-color: #ef444433;
-      }
-      .bg-black\/5 {
-        background-color: #0000000d;
-      }
-      .bg-green-500\/10 {
-        background-color: #22c55e1a;
-      }
-      .bg-red-500\/10 {
-        background-color: #ef44441a;
-      }
-      .fill-none {
-        fill: none;
-      }
-      .stroke-current {
-        stroke: currentColor;
-      }
-      .stroke-2 {
-        stroke-width: 2;
-      }
-      .p-4 {
-        padding: 1rem;
-      }
-      .px-3 {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
-      }
-      .py-1\.5 {
-        padding-top: 0.375rem;
-        padding-bottom: 0.375rem;
-      }
-      .py-12 {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-      .pb-1 {
-        padding-bottom: 0.25rem;
-      }
-      .pl-7 {
-        padding-left: 1.75rem;
-      }
-      .pl-8 {
-        padding-left: 2rem;
-      }
-      .pr-3 {
-        padding-right: 0.75rem;
-      }
-      .pt-12 {
-        padding-top: 3rem;
-      }
-      .pt-2 {
-        padding-top: 0.5rem;
-      }
-      .text-left {
-        text-align: left;
-      }
-      .font-mono {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-          "Liberation Mono", "Courier New", monospace;
-      }
-      .text-2xl {
-        font-size: 1.5rem;
-        line-height: 2rem;
-      }
-      .text-4xl {
-        font-size: 2.25rem;
-        line-height: 2.5rem;
-      }
-      .text-lg {
-        font-size: 1.125rem;
-        line-height: 1.75rem;
-      }
-      .text-sm {
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-      }
-      .text-xl {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-      }
-      .text-xs {
-        font-size: 0.75rem;
-        line-height: 1rem;
-      }
-      .font-bold {
-        font-weight: 700;
-      }
-      .font-medium {
-        font-weight: 500;
-      }
-      .font-semibold {
-        font-weight: 600;
-      }
-      .uppercase {
-        text-transform: uppercase;
-      }
-      .italic {
-        font-style: italic;
-      }
-      .leading-relaxed {
-        line-height: 1.625;
-      }
-      .text-\[\#FDDA0D\] {
-        --tw-text-opacity: 1;
-        color: rgb(253 218 13 / var(--tw-text-opacity, 1));
-      }
-      .text-black {
-        --tw-text-opacity: 1;
-        color: rgb(0 0 0 / var(--tw-text-opacity, 1));
-      }
-      .text-current {
-        color: currentColor;
-      }
-      .text-green-600 {
-        --tw-text-opacity: 1;
-        color: rgb(22 163 74 / var(--tw-text-opacity, 1));
-      }
-      .text-red-500 {
-        --tw-text-opacity: 1;
-        color: rgb(239 68 68 / var(--tw-text-opacity, 1));
-      }
-      .text-red-600 {
-        --tw-text-opacity: 1;
-        color: rgb(220 38 38 / var(--tw-text-opacity, 1));
-      }
-      .text-white {
-        --tw-text-opacity: 1;
-        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-      }
-      .underline {
-        text-decoration-line: underline;
-      }
-      .decoration-black\/30 {
-        text-decoration-color: #0000004d;
-      }
-      .underline-offset-\[3px\] {
-        text-underline-offset: 3px;
-      }
-      .opacity-60 {
-        opacity: 0.6;
-      }
-      .opacity-70 {
-        opacity: 0.7;
-      }
-      .opacity-80 {
-        opacity: 0.8;
-      }
-      .shadow-sm {
-        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-      }
-      .transition {
-        transition-property: color, background-color, border-color,
-          text-decoration-color, fill, stroke, opacity, box-shadow, transform,
-          filter, -webkit-backdrop-filter;
-        transition-property: color, background-color, border-color,
-          text-decoration-color, fill, stroke, opacity, box-shadow, transform,
-          filter, backdrop-filter;
-        transition-property: color, background-color, border-color,
-          text-decoration-color, fill, stroke, opacity, box-shadow, transform,
-          filter, backdrop-filter, -webkit-backdrop-filter;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 0.15s;
-      }
-      .transition-colors {
-        transition-property: color, background-color, border-color,
-          text-decoration-color, fill, stroke;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 0.15s;
-      }
-      .transition-transform {
-        transition-property: transform;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 0.15s;
-      }
-      .duration-300 {
-        transition-duration: 0.3s;
-      }
-      .ease-in-out {
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      article a {
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-          "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
-        color: currentColor;
-        text-decoration-line: underline;
-        text-underline-offset: 3px;
-        text-decoration-color: #0000004d;
-      }
-      article a:is(.dark *) {
-        text-decoration-color: #ffffff4d;
-      }
-      article a {
-        transition-property: color, background-color, border-color,
-          text-decoration-color, fill, stroke;
-        transition-duration: 0.3s;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      article a:hover {
-        --tw-text-opacity: 1;
-        color: rgb(0 0 0 / var(--tw-text-opacity, 1));
-      }
-      article a:hover:is(.dark *) {
-        --tw-text-opacity: 1;
-        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-      }
-      article a:hover {
-        text-decoration-color: #00000080;
-      }
-      article a:hover:is(.dark *) {
-        text-decoration-color: #ffffff80;
-      }
-      table {
-        border-collapse: collapse;
-        margin-right: 20px;
-      }
-      th,
-      td {
-        padding: 8px;
-        border: 1px dashed #a8a8a8;
-      }
-      .highlighted {
-        background-color: #fff;
-      }
-      .container {
-        display: flex;
-        align-items: flex-start;
-      }
-      html {
-        overflow-y: auto;
-        color-scheme: light;
-        scroll-padding-top: 100px;
-      }
-      html.dark {
-        color-scheme: dark;
-      }
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-      }
-      body {
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-          "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        display: flex;
-        flex-direction: column;
-        --tw-bg-opacity: 1;
-        background-color: rgb(245 245 245 / var(--tw-bg-opacity, 1));
-      }
-      body:is(.dark *) {
-        --tw-bg-opacity: 1;
-        background-color: rgb(23 23 23 / var(--tw-bg-opacity, 1));
-      }
-      body {
-        color: #000000bf;
-      }
-      body:is(.dark *) {
-        color: #ffffffbf;
-      }
-      header {
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        z-index: 50;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-        background-color: #f5f5f5bf;
-      }
-      header:is(.dark *) {
-        background-color: #171717bf;
-      }
-      header {
-        --tw-saturate: saturate(2);
-        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
-          var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
-          var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-        --tw-backdrop-blur: blur(4px);
-        -webkit-backdrop-filter: var(--tw-backdrop-blur)
-          var(--tw-backdrop-brightness) var(--tw-backdrop-contrast)
-          var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
-          var(--tw-backdrop-invert) var(--tw-backdrop-opacity)
-          var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-        backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
-          var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
-          var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
-          var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
-          var(--tw-backdrop-sepia);
-      }
-      main {
-        flex: 1 1 0%;
-        padding-top: 8rem;
-        padding-bottom: 8rem;
-      }
-      footer {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-      }
-      article {
-        color: var(--tw-prose-body);
-        max-width: 65ch;
-      }
-      article :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 1.25em;
-        margin-bottom: 1.25em;
-      }
-      article
-        :where([class~="lead"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-lead);
-        font-size: 1.25em;
-        line-height: 1.6;
-        margin-top: 1.2em;
-        margin-bottom: 1.2em;
-      }
-      article :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-links);
-        text-decoration: underline;
-        font-weight: 500;
-      }
-      article :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-bold);
-        font-weight: 600;
-      }
-      article :where(a strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      article
-        :where(blockquote strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      article
-        :where(thead th strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      article :where(ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: decimal;
-        margin-top: 1.25em;
-        margin-bottom: 1.25em;
-        padding-inline-start: 1.625em;
-      }
-      article
-        :where(ol[type="A"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: upper-alpha;
-      }
-      article
-        :where(ol[type="a"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: lower-alpha;
-      }
-      article
-        :where(ol[type="A s"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: upper-alpha;
-      }
-      article
-        :where(ol[type="a s"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: lower-alpha;
-      }
-      article
-        :where(ol[type="I"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: upper-roman;
-      }
-      article
-        :where(ol[type="i"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: lower-roman;
-      }
-      article
-        :where(ol[type="I s"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: upper-roman;
-      }
-      article
-        :where(ol[type="i s"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: lower-roman;
-      }
-      article
-        :where(ol[type="1"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: decimal;
-      }
-      article :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        list-style-type: disc;
-        margin-top: 1.25em;
-        margin-bottom: 1.25em;
-        padding-inline-start: 1.625em;
-      }
-      article
-        :where(ol > li):not(:where([class~="not-prose"], [class~="not-prose"] *))::marker {
-        font-weight: 400;
-        color: var(--tw-prose-counters);
-      }
-      article
-        :where(ul > li):not(:where([class~="not-prose"], [class~="not-prose"] *))::marker {
-        color: var(--tw-prose-bullets);
-      }
-      article :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 600;
-        margin-top: 1.25em;
-      }
-      article :where(hr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        border-color: var(--tw-prose-hr);
-        border-top-width: 1px;
-        margin-top: 3em;
-        margin-bottom: 3em;
-      }
-      article
-        :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 500;
-        font-style: italic;
-        color: var(--tw-prose-quotes);
-        border-inline-start-width: 0.25rem;
-        border-inline-start-color: var(--tw-prose-quote-borders);
-        quotes: "“" "”" "‘" "’";
-        margin-top: 1.6em;
-        margin-bottom: 1.6em;
-        padding-inline-start: 1em;
-      }
-      article
-        :where(blockquote p:first-of-type):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ):before {
-        content: open-quote;
-      }
-      article
-        :where(blockquote p:last-of-type):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ):after {
-        content: close-quote;
-      }
-      article :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 800;
-        font-size: 2.25em;
-        margin-top: 0;
-        margin-bottom: 0.8888889em;
-        line-height: 1.1111111;
-      }
-      article
-        :where(h1 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 900;
-        color: inherit;
-      }
-      article :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 700;
-        font-size: 1.5em;
-        margin-top: 2em;
-        margin-bottom: 1em;
-        line-height: 1.3333333;
-      }
-      article
-        :where(h2 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 800;
-        color: inherit;
-      }
-      article :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 600;
-        font-size: 1.25em;
-        margin-top: 1.6em;
-        margin-bottom: 0.6em;
-        line-height: 1.6;
-      }
-      article
-        :where(h3 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 700;
-        color: inherit;
-      }
-      article :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 600;
-        margin-top: 1.5em;
-        margin-bottom: 0.5em;
-        line-height: 1.5;
-      }
-      article
-        :where(h4 strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 700;
-        color: inherit;
-      }
-      article :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
-      article
-        :where(picture):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        display: block;
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
-      article :where(video):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
-      article :where(kbd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        font-weight: 500;
-        font-family: inherit;
-        color: var(--tw-prose-kbd);
-        box-shadow: 0 0 0 1px var(--tw-prose-kbd-shadows),
-          0 3px 0 var(--tw-prose-kbd-shadows);
-        font-size: 0.875em;
-        border-radius: 0.3125rem;
-        padding-top: 0.1875em;
-        padding-inline-end: 0.375em;
-        padding-bottom: 0.1875em;
-        padding-inline-start: 0.375em;
-      }
-      article :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-code);
-        font-weight: 600;
-        font-size: 0.875em;
-      }
-      article
-        :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)):before {
-        content: "`";
-      }
-      article
-        :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)):after {
-        content: "`";
-      }
-      article
-        :where(a code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      article
-        :where(h1 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      article
-        :where(h2 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-        font-size: 0.875em;
-      }
-      article
-        :where(h3 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-        font-size: 0.9em;
-      }
-      article
-        :where(h4 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      article
-        :where(blockquote code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      article
-        :where(thead th code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: inherit;
-      }
-      article :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-pre-code);
-        background-color: var(--tw-prose-pre-bg);
-        overflow-x: auto;
-        font-weight: 400;
-        font-size: 0.875em;
-        line-height: 1.7142857;
-        margin-top: 1.7142857em;
-        margin-bottom: 1.7142857em;
-        border-radius: 0.375rem;
-        padding-top: 0.8571429em;
-        padding-inline-end: 1.1428571em;
-        padding-bottom: 0.8571429em;
-        padding-inline-start: 1.1428571em;
-      }
-      article
-        :where(pre code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        background-color: transparent;
-        border-width: 0;
-        border-radius: 0;
-        padding: 0;
-        font-weight: inherit;
-        color: inherit;
-        font-size: inherit;
-        font-family: inherit;
-        line-height: inherit;
-      }
-      article
-        :where(pre code):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ):before {
-        content: none;
-      }
-      article
-        :where(pre code):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ):after {
-        content: none;
-      }
-      article :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        width: 100%;
-        table-layout: auto;
-        margin-top: 2em;
-        margin-bottom: 2em;
-        font-size: 0.875em;
-        line-height: 1.7142857;
-      }
-      article :where(thead):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        border-bottom-width: 1px;
-        border-bottom-color: var(--tw-prose-th-borders);
-      }
-      article
-        :where(thead th):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-headings);
-        font-weight: 600;
-        vertical-align: bottom;
-        padding-inline-end: 0.5714286em;
-        padding-bottom: 0.5714286em;
-        padding-inline-start: 0.5714286em;
-      }
-      article
-        :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        border-bottom-width: 1px;
-        border-bottom-color: var(--tw-prose-td-borders);
-      }
-      article
-        :where(tbody tr:last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        border-bottom-width: 0;
-      }
-      article :where(tbody td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        vertical-align: baseline;
-      }
-      article :where(tfoot):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        border-top-width: 1px;
-        border-top-color: var(--tw-prose-th-borders);
-      }
-      article :where(tfoot td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        vertical-align: top;
-      }
-      article :where(th, td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        text-align: start;
-      }
-      article
-        :where(figure > *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      article
-        :where(figcaption):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        color: var(--tw-prose-captions);
-        font-size: 0.875em;
-        line-height: 1.4285714;
-        margin-top: 0.8571429em;
-      }
-      article {
-        --tw-prose-body: #374151;
-        --tw-prose-headings: #111827;
-        --tw-prose-lead: #4b5563;
-        --tw-prose-links: #111827;
-        --tw-prose-bold: #111827;
-        --tw-prose-counters: #6b7280;
-        --tw-prose-bullets: #d1d5db;
-        --tw-prose-hr: #e5e7eb;
-        --tw-prose-quotes: #111827;
-        --tw-prose-quote-borders: #e5e7eb;
-        --tw-prose-captions: #6b7280;
-        --tw-prose-kbd: #111827;
-        --tw-prose-kbd-shadows: rgb(17 24 39 / 10%);
-        --tw-prose-code: #111827;
-        --tw-prose-pre-code: #e5e7eb;
-        --tw-prose-pre-bg: #1f2937;
-        --tw-prose-th-borders: #d1d5db;
-        --tw-prose-td-borders: #e5e7eb;
-        --tw-prose-invert-body: #d1d5db;
-        --tw-prose-invert-headings: #fff;
-        --tw-prose-invert-lead: #9ca3af;
-        --tw-prose-invert-links: #fff;
-        --tw-prose-invert-bold: #fff;
-        --tw-prose-invert-counters: #9ca3af;
-        --tw-prose-invert-bullets: #4b5563;
-        --tw-prose-invert-hr: #374151;
-        --tw-prose-invert-quotes: #f3f4f6;
-        --tw-prose-invert-quote-borders: #374151;
-        --tw-prose-invert-captions: #9ca3af;
-        --tw-prose-invert-kbd: #fff;
-        --tw-prose-invert-kbd-shadows: rgb(255 255 255 / 10%);
-        --tw-prose-invert-code: #fff;
-        --tw-prose-invert-pre-code: #d1d5db;
-        --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
-        --tw-prose-invert-th-borders: #4b5563;
-        --tw-prose-invert-td-borders: #374151;
-        font-size: 1rem;
-        line-height: 1.75;
-      }
-      article
-        :where(picture > img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      article :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-      }
-      article :where(ol > li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        padding-inline-start: 0.375em;
-      }
-      article :where(ul > li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        padding-inline-start: 0.375em;
-      }
-      article
-        :where(.prose > ul > li p):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-top: 0.75em;
-        margin-bottom: 0.75em;
-      }
-      article
-        :where(.prose > ul > li > p:first-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-top: 1.25em;
-      }
-      article
-        :where(.prose > ul > li > p:last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-bottom: 1.25em;
-      }
-      article
-        :where(.prose > ol > li > p:first-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-top: 1.25em;
-      }
-      article
-        :where(.prose > ol > li > p:last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-bottom: 1.25em;
-      }
-      article
-        :where(ul ul, ul ol, ol ul, ol ol):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-top: 0.75em;
-        margin-bottom: 0.75em;
-      }
-      article :where(dl):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 1.25em;
-        margin-bottom: 1.25em;
-      }
-      article :where(dd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0.5em;
-        padding-inline-start: 1.625em;
-      }
-      article :where(hr + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-      }
-      article :where(h2 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-      }
-      article :where(h3 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-      }
-      article :where(h4 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 0;
-      }
-      article
-        :where(thead th:first-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        padding-inline-start: 0;
-      }
-      article
-        :where(thead th:last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        padding-inline-end: 0;
-      }
-      article
-        :where(tbody td, tfoot td):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        padding-top: 0.5714286em;
-        padding-inline-end: 0.5714286em;
-        padding-bottom: 0.5714286em;
-        padding-inline-start: 0.5714286em;
-      }
-      article
-        :where(tbody td:first-child, tfoot td:first-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        padding-inline-start: 0;
-      }
-      article
-        :where(tbody td:last-child, tfoot td:last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        padding-inline-end: 0;
-      }
-      article :where(figure):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
-      article
-        :where(.prose > :first-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-top: 0;
-      }
-      article
-        :where(.prose > :last-child):not(
-          :where([class~="not-prose"], [class~="not-prose"] * circulation)
-        ) {
-        margin-bottom: 0;
-      }
-      article {
-        --tw-prose-body: #404040;
-        --tw-prose-headings: #171717;
-        --tw-prose-lead: #525252;
-        --tw-prose-links: #171717;
-        --tw-prose-bold: #171717;
-        --tw-prose-counters: #737373;
-        --tw-prose-bullets: #d4d4d4;
-        --tw-prose-hr: #e5e5e5;
-        --tw-prose-quotes: #171717;
-        --tw-prose-quote-borders: #e5e5e5;
-        --tw-prose-captions: #737373;
-        --tw-prose-kbd: #171717;
-        --tw-prose-kbd-shadows: rgb(23 23 23 / 10%);
-        --tw-prose-code: #171717;
-        --tw-prose-pre-code: #e5e5e5;
-        --tw-prose-pre-bg: #262626;
-        --tw-prose-th-borders: #d4d4d4;
-        --tw-prose-td-borders: #e5e5e5;
-        --tw-prose-invert-body: #d4d4d4;
-        --tw-prose-invert-headings: #fff;
-        --tw-prose-invert-lead: #a3a3a3;
-        --tw-prose-invert-links: #fff;
-        --tw-prose-invert-bold: #fff;
-        --tw-prose-invert-counters: #a3a3a3;
-        --tw-prose-invert-bullets: #525252;
-        --tw-prose-invert-hr: #404040;
-        --tw-prose-invert-quotes: #f5f5f5;
-        --tw-prose-invert-quote-borders: #404040;
-        --tw-prose-invert-captions: #a3a3a3;
-        --tw-prose-invert-kbd: #fff;
-        --tw-prose-invert-kbd-shadows: rgb(255 255 255 / 10%);
-        --tw-prose-invert-code: #fff;
-        --tw-prose-invert-pre-code: #d4d4d4;
-        --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
-        --tw-prose-invert-th-borders: #525252;
-        --tw-prose-invert-td-borders: #404040;
-        max-width: 100%;
-      }
-      article:is(.dark *) {
-        --tw-prose-body: var(--tw-prose-invert-body);
-        --tw-prose-headings: var(--tw-prose-invert-headings);
-        --tw-prose-lead: var(--tw-prose-invert-lead);
-        --tw-prose-links: var(--tw-prose-invert-links);
-        --tw-prose-bold: var(--tw-prose-invert-bold);
-        --tw-prose-counters: var(--tw-prose-invert-counters);
-        --tw-prose-bullets: var(--tw-prose-invert-bullets);
-        --tw-prose-hr: var(--tw-prose-invert-hr);
-        --tw-prose-quotes: var(--tw-prose-invert-quotes);
-        --tw-prose-quote-borders: var(--tw-prose-invert-quote-borders);
-        --tw-prose-captions: var(--tw-prose-invert-captions);
-        --tw-prose-kbd: var(--tw-prose-invert-kbd);
-        --tw-prose-kbd-shadows: var(--tw-prose-invert-kbd-shadows);
-        --tw-prose-code: var(--tw-prose-invert-code);
-        --tw-prose-pre-code: var(--tw-prose-invert-pre-code);
-        --tw-prose-pre-bg: var(--tw-prose-invert-pre-bg);
-        --tw-prose-th-borders: var(--tw-prose-invert-th-borders);
-        --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
-      }
-      article :is(:where(img):not(:where([class~="not-prose"], [class~="not-prose"] *))) {
-        margin: auto;
-      }
-      article
-        :is(
-          :where(h1, h2, h3, h4, h5, h6, th):not(
-            :where([class~="not-prose"], [class~="not-prose"] * circulation)
-          )
-        ) {
-        font-weight: 600;
-        --tw-text-opacity: 1;
-        color: rgb(0 0 0 / var(--tw-text-opacity, 1));
-      }
-      article:is(.dark *)
-        :is(
-          :where(h1, h2, h3, h4, h5, h6, th):not(
-            :where([class~="not-prose"], [class~="not-prose"] * circulation)
-          )
-        ) {
-        --tw-text-opacity: 1;
-        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-      }
-      .animate {
-        --tw-translate-y: -0.75rem;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-        opacity: 0;
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 0.3s;
-        transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-      }
-      .animate.show {
-        --tw-translate-y: 0px;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-        opacity: 1;
-      }
-      html #back-to-top {
-        pointer-events: none;
-        opacity: 0;
-      }
-      html.scrolled #back-to-top {
-        pointer-events: auto;
-        opacity: 1;
-      }
-      pre {
-        border-width: 1px;
-        border-color: #00000026;
-        padding-top: 1.25rem;
-        padding-bottom: 1.25rem;
-      }
-      pre:is(.dark *) {
-        border-color: #fff3;
-      }
-      :root {
-        --astro-code-color-text: #09090b;
-        --astro-code-color-background: #fafafa;
-        --astro-code-token-comment: #a19595;
-        --astro-code-token-keyword: #f47067;
-        --astro-code-token-string: #00a99a;
-        --astro-code-token-function: #429996;
-        --astro-code-token-constant: #2b70c5;
-        --astro-code-token-parameter: #4e8fdf;
-        --astro-code-token-string-expression: #ae42a0;
-        --astro-code-token-punctuation: #8996a3;
-        --astro-code-token-link: #8d85ff;
-      }
-      .dark {
-        --astro-code-color-text: #fafafa;
-        --astro-code-color-background: #09090b;
-        --astro-code-token-comment: #a19595;
-        --astro-code-token-keyword: #f47067;
-        --astro-code-token-string: #00a99a;
-        --astro-code-token-function: #6eafad;
-        --astro-code-token-constant: #b3cceb;
-        --astro-code-token-parameter: #4e8fdf;
-        --astro-code-token-string-expression: #bf7db6;
-        --astro-code-token-punctuation: #8996a3;
-        --astro-code-token-link: #8d85ff;
-      }
-      .copy-code {
-        position: absolute;
-        right: 0.75rem;
-        top: 0.75rem;
-        display: grid;
-        width: 2.25rem;
-        height: 2.25rem;
-        place-content: center;
-        border-radius: 0.25rem;
-        border-width: 1px;
-        border-color: #00000026;
-        --tw-bg-opacity: 1;
-        background-color: rgb(245 245 245 / var(--tw-bg-opacity, 1));
-        text-align: center;
-        transition-duration: 0.3s;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .copy-code:is(.dark *) {
-        border-color: #fff3;
-        --tw-bg-opacity: 1;
-        background-color: rgb(23 23 23 / var(--tw-bg-opacity, 1));
-      }
-      .copy-code:hover {
-        --tw-bg-opacity: 1;
-        background-color: rgb(233 233 233 / var(--tw-bg-opacity, 1));
-        transition-property: color, background-color, border-color,
-          text-decoration-color, fill, stroke;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 0.15s;
-      }
-      .copy-code:hover:is(.dark *) {
-        --tw-bg-opacity: 1;
-        background-color: rgb(35 35 35 / var(--tw-bg-opacity, 1));
-      }
-      .copy-code:active {
-        --tw-scale-x: 0.9;
-        --tw-scale-y: 0.9;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-        transition-property: transform;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 0.15s;
-      }
-      .dark\:prose-invert:is(.dark *) {
-        --tw-prose-body: var(--tw-prose-invert-body);
-        --tw-prose-headings: var(--tw-prose-invert-headings);
-        --tw-prose-lead: var(--tw-prose-invert-lead);
-        --tw-prose-links: var(--tw-prose-invert-links);
-        --tw-prose-bold: var(--tw-prose-invert-bold);
-        --tw-prose-counters: var(--tw-prose-invert-counters);
-        --tw-prose-bullets: var(--tw-prose-invert-bullets);
-        --tw-prose-hr: var(--tw-prose-invert-hr);
-        --tw-prose-quotes: var(--tw-prose-invert-quotes);
-        --tw-prose-quote-borders: var(--tw-prose-invert-quote-borders);
-        --tw-prose-captions: var(--tw-prose-invert-captions);
-        --tw-prose-kbd: var(--tw-prose-invert-kbd);
-        --tw-prose-kbd-shadows: var(--tw-prose-invert-kbd-shadows);
-        --tw-prose-code: var(--tw-prose-invert-code);
-        --tw-prose-pre-code: var(--tw-prose-invert-pre-code);
-        --tw-prose-pre-bg: var(--tw-prose-invert-pre-bg);
-        --tw-prose-th-borders: var(--tw-prose-invert-th-borders);
-        --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
-      }
-      .hover\:bg-black\/10:hover {
-        background-color: #0000001a;
-      }
-      .hover\:bg-black\/5:hover {
-        background-color: #0000000d;
-      }
-      .hover\:text-black:hover {
-        --tw-text-opacity: 1;
-        color: rgb(0 0 0 / var(--tw-text-opacity, 1));
-      }
-      .hover\:underline:hover {
-        text-decoration-line: underline;
-      }
-      .hover\:decoration-black\/50:hover {
-        text-decoration-color: #00000080;
-      }
-      .focus-visible\:bg-black\/5:focus-visible {
-        background-color: #0000000d;
-      }
-      .focus-visible\:text-black:focus-visible {
-        --tw-text-opacity: 1;
-        color: rgb(0 0 0 / var(--tw-text-opacity, 1));
-      }
-      .focus-visible\:decoration-black\/50:focus-visible {
-        text-decoration-color: #00000080;
-      }
-      .active\:scale-95:active {
-        --tw-scale-x: 0.95;
-        --tw-scale-y: 0.95;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      }
-      .group:hover .group-hover\:translate-x-0 {
-        --tw-translate-x: 0px;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      }
-      .group:hover .group-hover\:scale-x-100 {
-        --tw-scale-x: 1;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      }
-      .group:hover .group-hover\:animate-pulse {
-        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-      }
-      .group:hover .group-hover\:stroke-black {
-        stroke: #000;
-      }
-      .group:focus-visible .group-focus-visible\:translate-x-0 {
-        --tw-translate-x: 0px;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      }
-      .group:focus-visible .group-focus-visible\:scale-x-100 {
-        --tw-scale-x: 1;
-        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-          rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      }
-      @keyframes pulse {
-        50% {
-          opacity: 0.5;
-        }
-      }
-      .group:focus-visible .group-focus-visible\:animate-pulse {
-        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-      }
-      .group:focus-visible .group-focus-visible\:stroke-black {
-        stroke: #000;
-      }
-      .dark\:border-white\/10:is(.dark *) {
-        border-color: #ffffff1a;
-      }
-      .dark\:border-white\/20:is(.dark *) {
-        border-color: #fff3;
-      }
-      .dark\:bg-white\/5:is(.dark *) {
-        background-color: #ffffff0d;
-      }
-      .dark\:text-green-400:is(.dark *) {
-        --tw-text-opacity: 1;
-        color: rgb(74 222 128 / var(--tw-text-opacity, 1));
-      }
-      .dark\:text-red-400:is(.dark *) {
-        --tw-text-opacity: 1;
-        color: rgb(248 113 113 / var(--tw-text-opacity, 1));
-      }
-      .dark\:text-white:is(.dark *) {
-        --tw-text-opacity: 1;
-        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-      }
-      .dark\:decoration-white\/30:is(.dark *) {
-        text-decoration-color: #ffffff4d;
-      }
-      .dark\:hover\:bg-white\/10:hover:is(.dark *) {
-        background-color: #ffffff1a;
-      }
-      .dark\:hover\:bg-white\/5:hover:is(.dark *) {
-        background-color: #ffffff0d;
-      }
-      .dark\:hover\:text-white:hover:is(.dark *) {
-        --tw-text-opacity: 1;
-        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-      }
-      .dark\:hover\:decoration-white\/50:hover:is(.dark *) {
-        text-decoration-color: #ffffff80;
-      }
-      .dark\:focus-visible\:bg-white\/5:focus-visible:is(.dark *) {
-        background-color: #ffffff0d;
-      }
-      .dark\:focus-visible\:text-white:focus-visible:is(.dark *) {
-        --tw-text-opacity: 1;
-        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-      }
-      .dark\:focus-visible\:decoration-white\/50:focus-visible:is(.dark *) {
-        text-decoration-color: #ffffff80;
-      }
-      .group:hover .group-hover\:dark\:stroke-white:is(.dark *) {
-        stroke: #fff;
-      }
-      .group:focus-visible .dark\:group-focus-visible\:stroke-white:is(.dark *) {
-        stroke: #fff;
-      }
-      @media (min-width: 768px) {
-        .md\:grid-cols-2 {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-        .md\:grid-cols-3 {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-      }
-      @keyframes astroFadeInOut {
-        0% {
-          opacity: 1;
-        }
-        to {
-          opacity: 0;
-        }
-      }
-      @keyframes astroFadeIn {
-        0% {
-          opacity: 0;
-          mix-blend-mode: plus-lighter;
-        }
-        to {
-          opacity: 1;
-          mix-blend-mode: plus-lighter;
-        }
-      }
-      @keyframes astroFadeOut {
-        0% {
-          opacity: 1;
-          mix-blend-mode: plus-lighter;
-        }
-        to {
-          opacity: 0;
-          mix-blend-mode: plus-lighter;
-        }
-      }
-      @keyframes astroSlideFromRight {
-        0% {
-          transform: translate(100%);
-        }
-      }
-      @keyframes astroSlideFromLeft {
-        0% {
-          transform: translate(-100%);
-        }
-      }
-      @keyframes astroSlideToRight {
-        to {
-          transform: translate(100%);
-        }
-      }
-      @keyframes astroSlideToLeft {
-        to {
-          transform: translate(-100%);
-        }
-      }
-      @media (prefers-reduced-motion) {
-        ::view-transition-group(*),
-        ::view-transition-old(*),
-        ::view-transition-new(*) {
-          animation: none !important;
-        }
-        [data-astro-transition-scope] {
-          animation: none !important;
-        }
-      }
-    </style>
-    <header data-astro-transition-persist="astro-l7r54iwe-1">
-      <div class="mx-auto max-w-screen-sm px-3">
-        <div class="flex flex-wrap justify-between gap-y-2">
-          <a
-            href="https://ci.buddyworks.wtf/"
-            target="_self"
-            class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out"
-          >
-            <img
-              id="logo"
-              src="img/logo_dark.png"
-              alt="BUDDYWORKS CI"
-              style="max-width: 240px; max-height:50px"
-            />
+  <main id="content">
+    <section class="hero">
+      <div class="wrap">
+        <h1>Brand &amp; design guidelines</h1>
+        <p class="hero-lede">
+          How to represent <strong>BUDDYWORKS</strong> consistently across all
+          third-party media. All official art assets are in the presskit.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://drive.google.com/drive/u/1/folders/1nXymwSYpDArC0JUnDkoe5CdwLELewp0-" target="_blank" rel="noopener">
+            Open presskit<svg aria-hidden="true"><use href="#i-ext"/></svg>
           </a>
-          <nav class="flex items-center gap-1 text-sm">
-            <a
-              href="https://buddyworks.wtf/"
-              target="_self"
-              class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"
-            >
-              homepage
-            </a>
-            <span>|</span>
-            <a
-              href="https://docs.buddyworks.wtf/"
-              target="_self"
-              class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"
-            >
-              docs
-            </a>
-            <span>|</span>
-            <a
-              href="https://drive.google.com/drive/u/1/folders/1nXymwSYpDArC0JUnDkoe5CdwLELewp0-"
-              target="_self"
-              class="inline-block decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 focus-visible:decoration-black/50 dark:hover:decoration-white/50 dark:focus-visible:decoration-white/50 text-current hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white transition-colors duration-300 ease-in-out underline underline-offset-[3px]"
-            >
-              presskit
-            </a>
-          </nav>
+          <a class="btn btn-ghost" href="https://docs.buddyworks.wtf/">Documentation</a>
         </div>
       </div>
-    </header>
-    <main>
-      <div class="mx-auto max-w-screen-sm px-3">
-        <div class="animate space-y-12 py-12 show">
-          <!-- Hero Section -->
-          <section>
-            <h1 class="text-4xl font-bold text-black dark:text-white mb-6">
-              Brand and Design Guidelines
-            </h1>
-            <div class="space-y-4 text-lg leading-relaxed max-w-2xl">
+    </section>
+
+    <div class="wrap layout">
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          <li><a href="#colors"><span>01</span>Colors</a></li>
+          <li><a href="#spelling"><span>02</span>Spelling</a></li>
+          <li><a href="#artwork"><span>03</span>Artwork</a></li>
+          <li><a href="#typography"><span>04</span>Typography</a></li>
+          <li><a href="#association"><span>05</span>Association</a></li>
+        </ol>
+      </nav>
+
+      <div>
+        <section class="section" id="colors" aria-labelledby="colors-h">
+          <div class="section-head">
+            <span class="section-num">01</span>
+            <h2 id="colors-h">Colors</h2>
+          </div>
+          <p class="section-lede">The standard palette for all brand assets. Click a swatch to copy its hex code.</p>
+          <div class="section-body swatches">
+            <button class="swatch swatch-yellow" type="button" data-hex="#FDDA0D">
+              <span class="swatch-chip">
+                <span class="swatch-role">Accent A</span>
+                <span class="swatch-copy" aria-hidden="true">Copy hex</span>
+              </span>
+              <span class="swatch-meta">
+                <span class="swatch-name">Cadmium Yellow</span>
+                <dl class="swatch-codes">
+                  <dt>HEX</dt><dd>#FDDA0D</dd>
+                  <dt>RGB</dt><dd>253 218 13</dd>
+                </dl>
+              </span>
+            </button>
+            <button class="swatch swatch-white" type="button" data-hex="#E5E5E5">
+              <span class="swatch-chip">
+                <span class="swatch-role">Accent B</span>
+                <span class="swatch-copy" aria-hidden="true">Copy hex</span>
+              </span>
+              <span class="swatch-meta">
+                <span class="swatch-name">Glowing-Hairstrain White</span>
+                <dl class="swatch-codes">
+                  <dt>HEX</dt><dd>#E5E5E5</dd>
+                  <dt>RGB</dt><dd>229 229 229</dd>
+                </dl>
+              </span>
+            </button>
+            <button class="swatch swatch-black" type="button" data-hex="#000000">
+              <span class="swatch-chip">
+                <span class="swatch-role">Stencil A</span>
+                <span class="swatch-copy" aria-hidden="true">Copy hex</span>
+              </span>
+              <span class="swatch-meta">
+                <span class="swatch-name">Plain Black</span>
+                <dl class="swatch-codes">
+                  <dt>HEX</dt><dd>#000000</dd>
+                  <dt>RGB</dt><dd>0 0 0</dd>
+                </dl>
+              </span>
+            </button>
+            <button class="swatch swatch-grey" type="button" data-hex="#191919">
+              <span class="swatch-chip">
+                <span class="swatch-role">Stencil B</span>
+                <span class="swatch-copy" aria-hidden="true">Copy hex</span>
+              </span>
+              <span class="swatch-meta">
+                <span class="swatch-name">Dark Grey</span>
+                <dl class="swatch-codes">
+                  <dt>HEX</dt><dd>#191919</dd>
+                  <dt>RGB</dt><dd>25 25 25</dd>
+                </dl>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <section class="section" id="spelling" aria-labelledby="spelling-h">
+          <div class="section-head">
+            <span class="section-num">02</span>
+            <h2 id="spelling-h">Spelling</h2>
+          </div>
+          <p class="section-lede">
+            There is exactly one valid spelling and capitalization. It is always
+            written on a single line and never broken.
+          </p>
+          <div class="section-body">
+            <div class="spell-ok">
+              <span class="tag ok"><svg aria-hidden="true"><use href="#i-check"/></svg>Correct</span>
+              <p class="wordmark">BUDDYWORKS</p>
+              <ul class="spell-rules">
+                <li>All caps</li>
+                <li>One word</li>
+                <li>One line</li>
+              </ul>
+            </div>
+            <ul class="spell-bad" aria-label="Incorrect spellings">
+              <li>
+                <span class="tag bad"><svg aria-hidden="true"><use href="#i-x"/></svg>Incorrect</span>
+                <span class="wrong">Buddy Works</span>
+                <span class="exception none">No exceptions.</span>
+              </li>
+              <li>
+                <span class="tag bad"><svg aria-hidden="true"><use href="#i-x"/></svg>Incorrect</span>
+                <span class="wrong">BuddyWorks</span>
+                <span class="exception">Permitted in <b>code</b>.</span>
+              </li>
+              <li>
+                <span class="tag bad"><svg aria-hidden="true"><use href="#i-x"/></svg>Incorrect</span>
+                <span class="wrong">buddyworks</span>
+                <span class="exception">Permitted for <b>package names and URLs</b>.</span>
+              </li>
+              <li>
+                <span class="tag bad"><svg aria-hidden="true"><use href="#i-x"/></svg>Incorrect</span>
+                <span class="wrong">BUDDY<br>WORKS</span>
+                <span class="exception">Permitted in <b>first-party artwork</b> only.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="artwork" aria-labelledby="artwork-h">
+          <div class="section-head">
+            <span class="section-num">03</span>
+            <h2 id="artwork-h">Artwork</h2>
+          </div>
+          <p class="section-lede">
+            Use logos and artwork as supplied in the presskit. Don't recolor them,
+            and keep the original aspect ratio when scaling.
+          </p>
+          <div class="section-body demos">
+            <figure class="demo">
+              <div class="demo-stage"><img src="img/logo.png" alt="BUDDYWORKS logo, unaltered"></div>
+              <figcaption>
+                <span class="tag ok"><svg aria-hidden="true"><use href="#i-check"/></svg>Do</span>
+                <p>Use the artwork as supplied.</p>
+              </figcaption>
+            </figure>
+            <figure class="demo">
+              <div class="demo-stage demo-watermark"><img src="img/logo.png" alt="BUDDYWORKS logo at reduced opacity over an image"></div>
+              <figcaption>
+                <span class="tag ok"><svg aria-hidden="true"><use href="#i-check"/></svg>Do</span>
+                <p>Reduce opacity for watermarking.</p>
+              </figcaption>
+            </figure>
+            <figure class="demo">
+              <div class="demo-stage demo-recolor"><img src="img/logo.png" alt="BUDDYWORKS logo recolored blue"></div>
+              <figcaption>
+                <span class="tag bad"><svg aria-hidden="true"><use href="#i-x"/></svg>Don't</span>
+                <p>Recolor the artwork.</p>
+              </figcaption>
+            </figure>
+            <figure class="demo">
+              <div class="demo-stage demo-stretch"><img src="img/logo.png" alt="BUDDYWORKS logo stretched horizontally"></div>
+              <figcaption>
+                <span class="tag bad"><svg aria-hidden="true"><use href="#i-x"/></svg>Don't</span>
+                <p>Stretch or squash it. Scale proportionally.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="section" id="typography" aria-labelledby="typography-h">
+          <div class="section-head">
+            <span class="section-num">04</span>
+            <h2 id="typography-h">Typography</h2>
+          </div>
+          <p class="section-lede">
+            LEMON MILK is our primary font. Inter is the fallback wherever LEMON MILK
+            isn't available.
+          </p>
+          <div class="section-body">
+            <div class="type-list">
+              <div class="type-row">
+                <span class="type-role">Primary</span>
+                <img class="type-sample" src="img/type/lemon-milk-medium.svg" width="215" height="28" alt="LEMON MILK">
+                <span class="type-weight">Medium</span>
+              </div>
+              <div class="type-row">
+                <span class="type-role">Secondary</span>
+                <img class="type-sample" src="img/type/lemon-milk-light.svg" width="219" height="28" alt="LEMON MILK">
+                <span class="type-weight">Light</span>
+              </div>
+              <div class="type-row">
+                <span class="type-role">Fallback</span>
+                <span class="type-sample type-sample-inter">Inter</span>
+                <span class="type-weight">Any</span>
+              </div>
+            </div>
+
+            <div class="callout" role="note">
+              <svg aria-hidden="true"><use href="#i-x"/></svg>
+              <p><strong>No italics.</strong> <em>Italic styles</em> are not allowed in any typeface.</p>
+            </div>
+
+            <div class="downloads">
+              <a class="download" href="https://www.dafont.com/lemon-milk.font" target="_blank" rel="noopener">
+                <span>
+                  <span class="download-name">Download LEMON MILK</span>
+                  <span class="download-src">by Marsnev &middot; dafont.com</span>
+                </span>
+                <svg aria-hidden="true"><use href="#i-download"/></svg>
+              </a>
+              <a class="download" href="https://rsms.me/inter/" target="_blank" rel="noopener">
+                <span>
+                  <span class="download-name">Download Inter</span>
+                  <span class="download-src">by Rasmus Andersson &middot; rsms.me</span>
+                </span>
+                <svg aria-hidden="true"><use href="#i-download"/></svg>
+              </a>
+            </div>
+            <p class="type-note">
+              Downloads go to the official sources. Check each font's license
+              before using it in commercial work.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="association" aria-labelledby="association-h">
+          <div class="section-head">
+            <span class="section-num">05</span>
+            <h2 id="association-h">Association</h2>
+          </div>
+          <p class="section-lede">
+            BUDDYWORKS has strict rules about who we associate with, and how and
+            where the brand is used.
+          </p>
+          <div class="section-body">
+            <div class="prose">
               <p>
-                This page ensures <strong>BUDDYWORKS</strong> is represented
-                consistently across all third-party media.
+                <strong>Association</strong> means official partnerships and
+                endorsements. Use of our brand by third parties never implies
+                endorsement.
               </p>
               <p>
-                Access all official art assets through our
-                <a
-                  href="https://drive.google.com/drive/u/1/folders/1nXymwSYpDArC0JUnDkoe5CdwLELewp0-"
-                  class="text-[#FDDA0D] hover:underline font-medium"
-                >
-                  Presskit </a
-                >.
+                Official endorsements are marked as such and only appear on our
+                website(s), our social media channels, or in official announcements
+                on our Discord.
+              </p>
+              <p>
+                Even where an endorsement exists, we cannot guarantee the safety or
+                correctness of any content maintained by third parties, at any point.
               </p>
             </div>
-          </section>
-          <hr class="border-black/10 dark:border-white/10" />
-          <!-- Content Sections -->
-          <div class="space-y-20">
-            <section class="animate show">
-              <h2 class="text-2xl font-bold text-black dark:text-white mb-6">
-                Colors
-              </h2>
-              <p class="mb-8">
-                Our standardized palette used for all brand assets. Click a color to
-                copy its hex code.
-              </p>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <button
-                  class="color-card group flex w-full items-center rounded-lg border border-black/10 bg-black/5 p-4 text-left transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
-                  data-hex="#FDDA0D"
-                  data-original-name="Cadmium Yellow"
-                  aria-label="Copy Cadmium Yellow hex code"
-                >
-                  <div
-                    class="color-swatch flex size-16 items-center justify-center rounded-md font-mono text-xs shadow-sm transition-transform active:scale-95 text-black"
-                    style="background-color: #FDDA0D"
-                  >
-                    #FDDA0D
-                  </div>
-                  <div class="ml-4">
-                    <div class="text-sm font-semibold text-black dark:text-white">
-                      Accent A
-                    </div>
-                    <div class="color-name text-sm opacity-70">Cadmium Yellow</div>
-                  </div></button
-                ><button
-                  class="color-card group flex w-full items-center rounded-lg border border-black/10 bg-black/5 p-4 text-left transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
-                  data-hex="#e5e5e5"
-                  data-original-name="Glowing-Hairstrain White"
-                  aria-label="Copy Glowing-Hairstrain White hex code"
-                >
-                  <div
-                    class="color-swatch flex size-16 items-center justify-center rounded-md font-mono text-xs shadow-sm transition-transform active:scale-95 text-black"
-                    style="background-color: #e5e5e5"
-                  >
-                    #e5e5e5
-                  </div>
-                  <div class="ml-4">
-                    <div class="text-sm font-semibold text-black dark:text-white">
-                      Accent B
-                    </div>
-                    <div class="color-name text-sm opacity-70">
-                      Glowing-Hairstrain White
-                    </div>
-                  </div></button
-                ><button
-                  class="color-card group flex w-full items-center rounded-lg border border-black/10 bg-black/5 p-4 text-left transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
-                  data-hex="#000000"
-                  data-original-name="Plain Black"
-                  aria-label="Copy Plain Black hex code"
-                >
-                  <div
-                    class="color-swatch flex size-16 items-center justify-center rounded-md font-mono text-xs shadow-sm transition-transform active:scale-95 text-white"
-                    style="background-color: #000000"
-                  >
-                    #000000
-                  </div>
-                  <div class="ml-4">
-                    <div class="text-sm font-semibold text-black dark:text-white">
-                      Stencil A
-                    </div>
-                    <div class="color-name text-sm opacity-70">Plain Black</div>
-                  </div></button
-                ><button
-                  class="color-card group flex w-full items-center rounded-lg border border-black/10 bg-black/5 p-4 text-left transition-colors hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
-                  data-hex="#191919"
-                  data-original-name="Dark Grey"
-                  aria-label="Copy Dark Grey hex code"
-                >
-                  <div
-                    class="color-swatch flex size-16 items-center justify-center rounded-md font-mono text-xs shadow-sm transition-transform active:scale-95 text-white"
-                    style="background-color: #191919"
-                  >
-                    #191919
-                  </div>
-                  <div class="ml-4">
-                    <div class="text-sm font-semibold text-black dark:text-white">
-                      Stencil B
-                    </div>
-                    <div class="color-name text-sm opacity-70">Dark Grey</div>
-                  </div>
-                </button>
-              </div>
-            </section>
-            <script type="module">
-              const o = new Map();
-              function s() {
-                document.querySelectorAll(".color-card").forEach((t) => {
-                  t.addEventListener("click", async () => {
-                    const n = t.getAttribute("data-hex"),
-                      e = t.querySelector(".color-name"),
-                      i = t.getAttribute("data-original-name");
-                    if (!n || !e || !i) return;
-                    const a = o.get(t);
-                    a && clearTimeout(a),
-                      await navigator.clipboard.writeText(n),
-                      (e.textContent = "Copied!"),
-                      e.classList.add("text-[#FDDA0D]", "font-bold"),
-                      e.classList.remove("opacity-70");
-                    const c = window.setTimeout(() => {
-                      (e.textContent = i),
-                        e.classList.remove("text-[#FDDA0D]", "font-bold"),
-                        e.classList.add("opacity-70"),
-                        o.delete(t);
-                    }, 1500);
-                    o.set(t, c);
-                  });
-                });
-              }
-              document.addEventListener("DOMContentLoaded", s);
-              document.addEventListener("astro:after-swap", s);
-            </script>
-            <section class="animate show">
-              <h2 class="text-2xl font-bold text-black dark:text-white mb-6">
-                Spelling
-              </h2>
-              <span
-                >The only valid spelling and capitalization is “BUDDYWORKS”.<br />
-                BUDDYWORKS must be spelled in a single row and can’t be line-broken.
-                ***<br /></span
-              ><br />
-              <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                  <div
-                    class="p-4 rounded-lg bg-green-500/10 border border-green-500/20"
-                  >
-                    <span
-                      class="text-xs font-bold uppercase text-green-600 dark:text-green-400 block mb-1"
-                      >Correct</span
-                    >
-                    <span class="text-xl font-mono">BUDDYWORKS</span>
-                  </div>
-                  <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
-                    <span
-                      class="text-xs font-bold uppercase text-red-600 dark:text-red-400 block mb-1"
-                      >Incorrect</span
-                    >
-                    <div class="grid grid-cols-2 gap-2 text-sm opacity-80">
-                      <span>BUDDY<br />WORKS***</span>
-                      <span>BuddyWorks*</span>
-                      <span>buddyworks**</span>
-                      <span>Buddy Works</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-xs space-y-2 opacity-60 italic self-end">
-                  <p>* Permitted in code</p>
-                  <p>** Permitted for package names and URLs</p>
-                  <p>
-                    *** Permitted for first-party artwork; otherwise, line-breaks are
-                    not allowed.
-                  </p>
-                </div>
-              </div>
-            </section>
-            <section class="animate grid md:grid-cols-2 gap-12 show">
+
+            <p class="no-list-title">We do not endorse projects or content in these categories:</p>
+            <dl class="no-list">
               <div>
-                <h2 class="text-2xl font-bold text-black dark:text-white mb-6">
-                  Format
-                </h2>
-                <ul class="space-y-3 list-disc list-inside opacity-80">
-                  <li>Do not recolor the artwork colors.</li>
-                  <li>Scaling must match original aspect ratio.</li>
-                  <li>Opacity is allowed for watermarking.</li>
-                </ul>
+                <dt><svg aria-hidden="true"><use href="#i-x"/></svg>Adult themes</dt>
+                <dd>Content marketed to adult audiences. SFW store listings are excluded.</dd>
               </div>
               <div>
-                <h2 class="text-2xl font-bold text-black dark:text-white mb-6">
-                  Typography
-                </h2>
-                <div class="space-y-2 font-mono text-sm">
-                  <div
-                    class="flex justify-between border-b border-black/10 dark:border-white/10 pb-1"
-                  >
-                    <span>LEMON MILK Medium</span>
-                    <span class="opacity-60">Primary</span>
-                  </div>
-                  <div
-                    class="flex justify-between border-b border-black/10 dark:border-white/10 pb-1"
-                  >
-                    <span>LEMON MILK Light</span>
-                    <span class="opacity-60">Secondary</span>
-                  </div>
-                  <div
-                    class="flex justify-between border-b border-black/10 dark:border-white/10 pb-1"
-                  >
-                    <span>Inter</span>
-                    <span class="opacity-60">Fallback</span>
-                  </div>
-                  <p class="text-red-500 font-bold pt-2">
-                    Italic modes are not allowed.
-                  </p>
-                </div>
+                <dt><svg aria-hidden="true"><use href="#i-x"/></svg>Politics &amp; religion</dt>
+                <dd>Projects spreading political or religious agendas.</dd>
               </div>
-            </section>
-            <section
-              class="animate border-t border-black/10 dark:border-white/10 pt-12 show"
-            >
-              <h2 class="text-2xl font-bold text-black dark:text-white mb-6">
-                Association
-              </h2>
-              <div class="prose dark:prose-invert max-w-none space-y-6">
-                <p>
-                  BUDDYWORKS has strict rules about who we associate with, and how and
-                  where the brand is used.<br />
-                  <br />
-                  Association refers to official partnerships and endorsements.<br />
-                  Under no circumstance does use of our brand by third parties infer
-                  endorsement.<br />
-                  <br />
-                  Official endorsements are marked as such, and only to be seen on our
-                  website(s), social media channels or by official announcements in
-                  our Discord.<br />
-                  <br />
-                  Regardless of such endorsements, we can not guarantee for the safety
-                  and correctness of any content maintained by third-parties, at any
-                  point.<br />
-                </p>
-                <b>We Specifically do not endorse projects and content of the following categories:</b>
-                <div class="grid md:grid-cols-3 gap-6">
-                  <div
-                    class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10"
-                  >
-                    <h3 class="font-bold mb-2">Adult Themes</h3>
-                    <p class="text-sm opacity-70">
-                      Content marketed for adult audiences (SFW store listings
-                      excluded).
-                    </p>
-                  </div>
-                  <div
-                    class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10"
-                  >
-                    <h3 class="font-bold mb-2">Politics/Religion</h3>
-                    <p class="text-sm opacity-70">
-                      Projects spreading political or religious agendas.
-                    </p>
-                  </div>
-                  <div
-                    class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10"
-                  >
-                    <h3 class="font-bold mb-2">Horror</h3>
-                    <p class="text-sm opacity-70">
-                      Content considered shocking or gruesome.
-                    </p>
-                  </div>
-                </div>
-                <p class="text-sm italic">
-                  Questions? Reach out via our
-                  <a href="https://buddyworks.wtf/" class="text-[#FDDA0D]">Discord</a
-                  >.
-                </p>
+              <div>
+                <dt><svg aria-hidden="true"><use href="#i-x"/></svg>Horror</dt>
+                <dd>Content considered shocking or gruesome.</dd>
               </div>
-            </section>
+            </dl>
+
+            <p class="contact">
+              Questions? Reach out on our Discord, linked from
+              <a href="https://buddyworks.wtf/">buddyworks.wtf</a>.
+            </p>
           </div>
-        </div>
+        </section>
       </div>
-    </main>
-    <footer class="animate show">
-      <div class="mx-auto max-w-screen-sm px-3">
-        <div class="relative">
-          <div class="absolute -top-12 right-0">
-            <button
-              id="back-to-top"
-              class="group relative flex w-fit flex-nowrap rounded border border-black/15 py-1.5 pl-8 pr-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                class="absolute left-2 top-1/2 size-4 -translate-y-1/2 rotate-90 fill-none stroke-current stroke-2"
-              >
-                <line
-                  x1="5"
-                  y1="12"
-                  x2="19"
-                  y2="12"
-                  class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"
-                ></line>
-                <polyline
-                  points="12 5 5 12 12 19"
-                  class="translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"
-                ></polyline>
-              </svg>
-              <div class="text-sm">Back to top</div>
-            </button>
-          </div>
-        </div>
-        <div class="flex items-center justify-between">
-          <div>2026 | BUDDYWORKS</div>
-          <div class="flex flex-wrap items-center gap-1.5">
-            <button
-              id="light-theme-button"
-              aria-label="Light theme"
-              class="group flex size-9 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"
-              >
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            </button>
-            <button
-              id="dark-theme-button"
-              aria-label="Dark theme"
-              class="group flex size-9 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"
-              >
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-              </svg>
-            </button>
-            <button
-              id="system-theme-button"
-              aria-label="System theme"
-              class="group flex size-9 items-center justify-center rounded border border-black/15 hover:bg-black/5 focus-visible:bg-black/5 dark:border-white/20 dark:hover:bg-white/5 dark:focus-visible:bg-white/5 bg-black/5 dark:bg-white/5"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="transition-colors duration-300 ease-in-out group-hover:animate-pulse group-hover:stroke-black group-focus-visible:animate-pulse group-focus-visible:stroke-black group-hover:dark:stroke-white dark:group-focus-visible:stroke-white"
-              >
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </body>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; 2026 BUDDYWORKS</span>
+      <nav aria-label="Footer">
+        <a href="https://buddyworks.wtf/">Homepage</a>
+        <a href="https://docs.buddyworks.wtf/">Docs</a>
+        <a href="https://drive.google.com/drive/u/1/folders/1nXymwSYpDArC0JUnDkoe5CdwLELewp0-" target="_blank" rel="noopener">Presskit</a>
+        <a href="#">Back to top &uarr;</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
 </html>

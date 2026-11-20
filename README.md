@@ -12,7 +12,7 @@ css/style.css   styles
 js/main.js      copy-to-clipboard for color swatches, section index highlight
 img/            logo, link-preview image, LEMON MILK font samples
 favicon.ico
-CNAME           custom domain for GitHub Pages
+CNAME           custom domain (ci.buddyworks.wtf) for GitHub Pages
 ```
 
 Plain HTML, CSS and JavaScript. There is no build step and no dependencies.
